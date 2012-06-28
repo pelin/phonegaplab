@@ -79,10 +79,23 @@
             // A button will call this function
             //
             function capturePhoto() {
+
+                alert("capture photo");
+
                 // Take picture using device camera and retrieve image as base64-encoded string
-                navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
-                    destinationType: destinationType.DATA_URL
-                });
+//                navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
+//                    destinationType: destinationType.DATA_URL
+//                });
+
+                navigator.camera.getPicture(onPhotoDataSuccess, onFail, { 
+                    quality: 50,
+                    destinationType: Camera.DestinationType.FILE_URI,
+                    encodingType: Camera.EncodingType.JPEG, 
+                    targetWidth: 2048, targetHeight: 2048 });
+
+                 
+
+
             }
 
             // A button will call this function
@@ -98,10 +111,17 @@
             //
             function getPhoto(source) {
                 // Retrieve image file location from specified source
+//                navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
+//                    destinationType: destinationType.FILE_URI,
+//                    sourceType: source
+//                });
+
+
                 navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
-                    destinationType: destinationType.FILE_URI,
-                    sourceType: source
+                    destinationType: Camera.DestinationType.FILE_URI,
+                    sourceType: Camera.PictureSourceType.PHOTOLIBRARY
                 });
+
             }
 
             // Called if something bad happens.
