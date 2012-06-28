@@ -13,34 +13,36 @@
         <script type="text/javascript">
 
 
+            var pictureSource;   // picture source
+            var destinationType; // sets the format of returned value 
+
             document.addEventListener("deviceready",onDeviceReady,false);
             function onDeviceReady()
             {
                 console.log("onDeviceReady. You should see this message in Visual Studio's output window.");
-                initCamera();
-            }
-
-
-
-            var pictureSource;   // picture source
-            var destinationType; // sets the format of returned value 
-
-            // Wait for Cordova to connect with the device
-            //
-            document.addEventListener("deviceready", onDeviceReady, false);
-
-            // Cordova is ready to be used!
-            //
-            function initCamera() {
                 pictureSource = navigator.camera.PictureSourceType;
                 destinationType = navigator.camera.DestinationType;
             }
+
+
+
+            
+
+//            // Wait for Cordova to connect with the device
+//            //
+//            document.addEventListener("deviceready", onDeviceReady, false);
+
+//            // Cordova is ready to be used!
+//            //
+//            function onDeviceReady() {
+//               
+//            }
 
             // Called when a photo is successfully retrieved
             //
             function onPhotoDataSuccess(imageData) {
                 // Uncomment to view the base64 encoded image data
-                console.log(imageData);
+                // console.log(imageData);
 
                 // Get image handle
                 //
@@ -60,7 +62,7 @@
             //
             function onPhotoURISuccess(imageURI) {
                 // Uncomment to view the image file URI 
-                console.log(imageURI);
+                // console.log(imageURI);
 
                 // Get image handle
                 //
@@ -79,23 +81,10 @@
             // A button will call this function
             //
             function capturePhoto() {
-
-                alert("capture photo");
-
                 // Take picture using device camera and retrieve image as base64-encoded string
-//                navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
-//                    destinationType: destinationType.DATA_URL
-//                });
-
-                navigator.camera.getPicture(onPhotoDataSuccess, onFail, { 
-                    quality: 50,
-                    destinationType: Camera.DestinationType.FILE_URI,
-                    encodingType: Camera.EncodingType.JPEG, 
-                    targetWidth: 2048, targetHeight: 2048 });
-
-                 
-
-
+                navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 40,
+                    destinationType: destinationType.DATA_URL
+                });
             }
 
             // A button will call this function
@@ -111,17 +100,10 @@
             //
             function getPhoto(source) {
                 // Retrieve image file location from specified source
-//                navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
-//                    destinationType: destinationType.FILE_URI,
-//                    sourceType: source
-//                });
-
-
-                navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
-                    destinationType: Camera.DestinationType.FILE_URI,
-                    sourceType: Camera.PictureSourceType.PHOTOLIBRARY
+                navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 40,
+                    destinationType: destinationType.FILE_URI,
+                    sourceType: source
                 });
-
             }
 
             // Called if something bad happens.
@@ -129,6 +111,7 @@
             function onFail(message) {
                 alert('Failed because: ' + message);
             }
+
 
 
 
@@ -221,7 +204,7 @@
         <div data-role="page" id="home">
 
             <div data-role="header">
-                <h1>Servicekoll 0.1</h1>
+                <h1>Servicekoll 0.1 </h1>
             </div><!-- /header -->
 
             <div data-role="content">	
