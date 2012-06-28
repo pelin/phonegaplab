@@ -12,3 +12,17 @@ C:\Users\peter.lindstrom\Documents\Visual Studio 2010\Projects\CordovaStarter1\C
 C:\Users\peter.lindstrom\Documents\Visual Studio 2010\Projects\CordovaStarter1\CordovaStarter1\obj\Debug\CordovaStarter1.dll
 C:\Users\peter.lindstrom\Documents\Visual Studio 2010\Projects\CordovaStarter1\CordovaStarter1\obj\Debug\CordovaStarter1.pdb
 C:\Users\peter.lindstrom\Documents\Visual Studio 2010\Projects\CordovaStarter1\CordovaStarter1\obj\Debug\XapCacheFile.xml
+C:\Kod\GitCode\phonegaplab\CordovaStarter1\Bin\Debug\ApplicationIcon.png
+C:\Kod\GitCode\phonegaplab\CordovaStarter1\Bin\Debug\Background.png
+C:\Kod\GitCode\phonegaplab\CordovaStarter1\Bin\Debug\CordovaStarter1.dll
+C:\Kod\GitCode\phonegaplab\CordovaStarter1\Bin\Debug\CordovaStarter1.pdb
+C:\Kod\GitCode\phonegaplab\CordovaStarter1\Bin\Debug\AppManifest.xaml
+C:\Kod\GitCode\phonegaplab\CordovaStarter1\Bin\Debug\CordovaStarter1.xap
+C:\Kod\GitCode\phonegaplab\CordovaStarter1\Bin\Debug\WP7CordovaClassLib.dll
+C:\Kod\GitCode\phonegaplab\CordovaStarter1\obj\Debug\CordovaStarter1.csprojResolveAssemblyReference.cache
+C:\Kod\GitCode\phonegaplab\CordovaStarter1\obj\Debug\App.g.i.cs
+C:\Kod\GitCode\phonegaplab\CordovaStarter1\obj\Debug\MainPage.g.i.cs
+C:\Kod\GitCode\phonegaplab\CordovaStarter1\obj\Debug\CordovaStarter1.g.resources
+C:\Kod\GitCode\phonegaplab\CordovaStarter1\obj\Debug\CordovaStarter1.dll
+C:\Kod\GitCode\phonegaplab\CordovaStarter1\obj\Debug\CordovaStarter1.pdb
+C:\Kod\GitCode\phonegaplab\CordovaStarter1\obj\Debug\XapCacheFile.xml

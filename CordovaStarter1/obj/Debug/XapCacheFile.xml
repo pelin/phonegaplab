@@ -1,16 +1,16 @@
-﻿<xapCache source="C:\Users\peter.lindstrom\Documents\Visual Studio 2010\Projects\CordovaStarter1\CordovaStarter1\Bin\Debug\CordovaStarter1.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="2012-06-26 13:11:36">
-  <file source="C:\Users\peter.lindstrom\Documents\Visual Studio 2010\Projects\CordovaStarter1\CordovaStarter1\Bin\Debug\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="2012-06-26 13:11:36" />
-  <file source="C:\Users\peter.lindstrom\Documents\Visual Studio 2010\Projects\CordovaStarter1\CordovaStarter1\Background.png" archivePath="Background.png" lastWriteTime="2012-06-26 13:11:17" />
-  <file source="C:\Users\peter.lindstrom\Documents\Visual Studio 2010\Projects\CordovaStarter1\CordovaStarter1\ApplicationIcon.png" archivePath="ApplicationIcon.png" lastWriteTime="2012-06-26 13:11:17" />
-  <file source="C:\Users\peter.lindstrom\Documents\Visual Studio 2010\Projects\CordovaStarter1\CordovaStarter1\obj\Debug\CordovaStarter1.dll" archivePath="CordovaStarter1.dll" lastWriteTime="2012-06-26 13:11:35" />
-  <file source="C:\Users\peter.lindstrom\Documents\Visual Studio 2010\Projects\CordovaStarter1\CordovaStarter1\GapLib\WP7CordovaClassLib.dll" archivePath="WP7CordovaClassLib.dll" lastWriteTime="2012-06-26 13:11:17" />
-  <file source="C:\Users\peter.lindstrom\Documents\Visual Studio 2010\Projects\CordovaStarter1\CordovaStarter1\CordovaSourceDictionary.xml" archivePath="CordovaSourceDictionary.xml" lastWriteTime="2012-06-26 13:11:34" />
-  <file source="C:\Users\peter.lindstrom\Documents\Visual Studio 2010\Projects\CordovaStarter1\CordovaStarter1\GapLib\WP7CordovaClassLib.dll" archivePath="GapLib\WP7CordovaClassLib.dll" lastWriteTime="2012-06-26 13:11:17" />
-  <file source="C:\Users\peter.lindstrom\Documents\Visual Studio 2010\Projects\CordovaStarter1\CordovaStarter1\www\cordova-1.8.1.js" archivePath="www\cordova-1.8.1.js" lastWriteTime="2012-06-26 13:11:17" />
-  <file source="C:\Users\peter.lindstrom\Documents\Visual Studio 2010\Projects\CordovaStarter1\CordovaStarter1\www\index.html" archivePath="www\index.html" lastWriteTime="2012-06-26 13:11:17" />
-  <file source="C:\Users\peter.lindstrom\Documents\Visual Studio 2010\Projects\CordovaStarter1\CordovaStarter1\www\master.css" archivePath="www\master.css" lastWriteTime="2012-06-26 13:11:17" />
-  <file source="C:\Users\peter.lindstrom\Documents\Visual Studio 2010\Projects\CordovaStarter1\CordovaStarter1\SplashScreenImage.jpg" archivePath="SplashScreenImage.jpg" lastWriteTime="2012-06-26 13:11:17" />
-  <file source="C:\Users\peter.lindstrom\Documents\Visual Studio 2010\Projects\CordovaStarter1\CordovaStarter1\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="2012-06-26 13:11:36" />
-  <file source="C:\Users\peter.lindstrom\Documents\Visual Studio 2010\Projects\CordovaStarter1\CordovaStarter1\Bin\Debug\ApplicationIcon.png" archivePath="ApplicationIcon.png" lastWriteTime="2012-06-26 13:11:17" />
-  <file source="C:\Users\peter.lindstrom\Documents\Visual Studio 2010\Projects\CordovaStarter1\CordovaStarter1\Bin\Debug\Background.png" archivePath="Background.png" lastWriteTime="2012-06-26 13:11:17" />
+﻿<xapCache source="C:\Kod\GitCode\phonegaplab\CordovaStarter1\Bin\Debug\CordovaStarter1.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="2012-06-27 11:31:32">
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter1\Bin\Debug\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="2012-06-26 13:11:36" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter1\Background.png" archivePath="Background.png" lastWriteTime="2012-06-26 13:11:17" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter1\ApplicationIcon.png" archivePath="ApplicationIcon.png" lastWriteTime="2012-06-26 13:11:17" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter1\obj\Debug\CordovaStarter1.dll" archivePath="CordovaStarter1.dll" lastWriteTime="2012-06-26 13:31:23" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter1\GapLib\WP7CordovaClassLib.dll" archivePath="WP7CordovaClassLib.dll" lastWriteTime="2012-06-26 13:11:17" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter1\CordovaSourceDictionary.xml" archivePath="CordovaSourceDictionary.xml" lastWriteTime="2012-06-27 11:31:31" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter1\GapLib\WP7CordovaClassLib.dll" archivePath="GapLib\WP7CordovaClassLib.dll" lastWriteTime="2012-06-26 13:11:17" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter1\www\cordova-1.8.1.js" archivePath="www\cordova-1.8.1.js" lastWriteTime="2012-06-26 13:11:17" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter1\www\index.html" archivePath="www\index.html" lastWriteTime="2012-06-27 09:51:14" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter1\www\master.css" archivePath="www\master.css" lastWriteTime="2012-06-26 13:11:17" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter1\SplashScreenImage.jpg" archivePath="SplashScreenImage.jpg" lastWriteTime="2012-06-26 13:11:17" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter1\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="2012-06-26 13:11:36" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter1\Bin\Debug\ApplicationIcon.png" archivePath="ApplicationIcon.png" lastWriteTime="2012-06-26 13:11:17" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter1\Bin\Debug\Background.png" archivePath="Background.png" lastWriteTime="2012-06-26 13:11:17" />
 </xapCache>
