@@ -1,0 +1,295 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+
+    <title>Servicekoll</title>
+
+	    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+	    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	    <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="cordova-2.0.0.js"></script>
+        <script type="text/javascript">
+
+
+            var pictureSource;   // picture source
+            var destinationType; // sets the format of returned value 
+
+            document.addEventListener("deviceready", onDeviceReady, false);
+            function onDeviceReady() {
+                console.log("onDeviceReady. You should see this message in Visual Studio's output window.");
+                pictureSource = navigator.camera.PictureSourceType;
+                destinationType = navigator.camera.DestinationType;
+            }
+
+
+
+
+
+            //            // Wait for Cordova to connect with the device
+            //            //
+            //            document.addEventListener("deviceready", onDeviceReady, false);
+
+            //            // Cordova is ready to be used!
+            //            //
+            //            function onDeviceReady() {
+            //               
+            //            }
+
+            // Called when a photo is successfully retrieved
+            //
+            function onPhotoDataSuccess(imageData) {
+                // Uncomment to view the base64 encoded image data
+                // console.log(imageData);
+
+                // Get image handle
+                //
+                var smallImage = document.getElementById('smallImage');
+
+                // Unhide image elements
+                //
+                smallImage.style.display = 'block';
+
+                // Show the captured photo
+                // The inline CSS rules are used to resize the image
+                //
+                smallImage.src = "data:image/jpeg;base64," + imageData;
+            }
+
+            // Called when a photo is successfully retrieved
+            //
+            function onPhotoURISuccess(imageURI) {
+                // Uncomment to view the image file URI 
+                // console.log(imageURI);
+
+                // Get image handle
+                //
+                var largeImage = document.getElementById('largeImage');
+
+                // Unhide image elements
+                //
+                largeImage.style.display = 'block';
+
+                // Show the captured photo
+                // The inline CSS rules are used to resize the image
+                //
+                largeImage.src = imageURI;
+            }
+
+            // A button will call this function
+            //
+            function capturePhoto() {
+                // Take picture using device camera and retrieve image as base64-encoded string
+                navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 40,
+                    destinationType: destinationType.DATA_URL
+                });
+            }
+
+            // A button will call this function
+            //
+            function capturePhotoEdit() {
+                // Take picture using device camera, allow edit, and retrieve image as base64-encoded string  
+                navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
+                    destinationType: destinationType.DATA_URL
+                });
+            }
+
+            // A button will call this function
+            //
+            function getPhoto(source) {
+                // Retrieve image file location from specified source
+                navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 40,
+                    destinationType: destinationType.FILE_URI,
+                    sourceType: source
+                });
+            }
+
+            // Called if something bad happens.
+            // 
+            function onFail(message) {
+                alert('Failed because: ' + message);
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+            function onDispayCoordinates() {
+                navigator.geolocation.getCurrentPosition(onSuccess, onError);
+            }
+
+            // onSuccess Geolocation
+            //
+            function onSuccess(position) {
+                var element = document.getElementById('geolocation');
+                element.innerHTML = 'Latitude: ' + position.coords.latitude + '<br />' +
+                                'Longitude: ' + position.coords.longitude + '<br />' +
+                                'Altitude: ' + position.coords.altitude + '<br />' +
+                                'Accuracy: ' + position.coords.accuracy + '<br />' +
+                                'Altitude Accuracy: ' + position.coords.altitudeAccuracy + '<br />' +
+                                'Heading: ' + position.coords.heading + '<br />' +
+                                'Speed: ' + position.coords.speed + '<br />' +
+                                'Timestamp: ' + position.timestamp + '<br />';
+            }
+
+            // onError Callback receives a PositionError object
+            //
+            function onError(error) {
+                alert('code: ' + error.code + '\n' +
+                  'message: ' + error.message + '\n');
+            }
+
+
+
+
+            ////////////////////////
+
+            var x = document.getElementById("demo");
+            function onDispayCoordinates() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition, showError);
+                }
+                else { x.innerHTML = "Geolocation is not supported by this browser."; }
+            }
+
+            function showPosition(position) {
+                var latlon = position.coords.latitude + "," + position.coords.longitude;
+
+                var img_url = "http://maps.googleapis.com/maps/api/staticmap?center="
+      + latlon + "&zoom=14&size=400x300&sensor=false";
+                document.getElementById("mapholder").innerHTML = "<img src='" + img_url + "' />";
+
+                document.getElementById("koord").innerHTML = "<span>" + latlon + "</span>";
+
+            }
+
+            function showError(error) {
+                switch (error.code) {
+                    case error.PERMISSION_DENIED:
+                        x.innerHTML = "User denied the request for Geolocation."
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        x.innerHTML = "Location information is unavailable."
+                        break;
+                    case error.TIMEOUT:
+                        x.innerHTML = "The request to get user location timed out."
+                        break;
+                    case error.UNKNOWN_ERROR:
+                        x.innerHTML = "An unknown error occurred."
+                        break;
+                }
+            }
+
+            /////////////////////////
+
+
+    </script>
+
+
+
+
+  </head>
+    <body>
+
+        <!-- Start of first page -->
+        <div data-role="page" id="home">
+
+            <div data-role="header">
+                <h1>Servicekoll 0.1 </h1>
+            </div><!-- /header -->
+
+            <div data-role="content">	
+                
+                <button>Starta dagen</button> <br/>
+                <button>Avsluta dagen</button> <br/>
+
+
+                <ul data-role="listview" data-inset="true" data-filter="true">
+	                <li><a href="#">Acura</a></li>
+	                <li><a href="#">Audi</a></li>
+	                <li><a href="#">BMW</a></li>
+	                <li><a href="#">Cadillac</a></li>
+	                <li><a href="#">Ferrari</a></li>
+                </ul>		
+
+                <p>Länk till andra sidan <a href="#bar">bar</a></p>
+                <p>Länk till 3 sidan <a href="#settings">inställningar</a></p>
+
+            </div><!-- /content -->
+
+        </div><!-- /page -->
+
+
+
+        <!-- Start of second page -->
+        <div data-role="page" id="bar">
+
+	        <div data-role="header">
+		        <h1>Bar</h1>
+	        </div><!-- /header -->
+
+	        <div data-role="content">	
+                <button onclick="capturePhoto();">Capture Photo</button> <br>
+                <button onclick="capturePhotoEdit();">Capture Editable Photo</button> <br>
+                <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>
+                <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>
+                <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
+                <img style="display:none;" id="largeImage" src="" />
+
+                <p id="demo">Klicka här:</p>
+                <button onclick="onDispayCoordinates();">Visa position</button> <br>
+    
+                <div id="koord"></div>
+                <div id="mapholder"></div>
+
+		        <p><a href="#home">Tillbaka</a></p>	
+	        </div><!-- /content -->
+
+	        <div data-role="footer">
+		        <h4>Page Footer</h4>
+	        </div><!-- /footer -->
+        </div><!-- /page -->
+
+        <!-- Start of settings page -->
+        <div data-role="page" id="settings">
+
+	        <div data-role="header">
+		        <h1>Inställningar</h1>
+	        </div><!-- /header -->
+
+	        <div data-role="content">	
+               
+                <div data-role="fieldcontain" class="ui-hide-label">
+	                <label for="username">Användarnamn:</label>
+	                <input type="text" name="username" id="username" value="" placeholder="Användarnamn"/>
+                </div>
+                <div data-role="fieldcontain">
+	                <label for="password">Password:</label>
+	                <input type="password" name="password" id="password" value="" placeholder="Lösenord"/>
+			    </div>
+
+                <button>Spara</button>
+
+		        <p><a href="#home">Tillbaka</a></p>	
+	        </div><!-- /content -->
+
+	        <div data-role="footer">
+		        <h4>Page Footer</h4>
+	        </div><!-- /footer -->
+        </div><!-- /page -->
+
+
+
+    
+
+
+  </body>
+</html>
