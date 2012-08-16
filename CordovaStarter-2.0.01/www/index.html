@@ -125,6 +125,7 @@
 
                             workday.fetch({
                                 success: function (myObject) {
+                                    alert("Klart");
                                     currentWorkday = myObject;
                                     workdayStarted = currentWorkday.createdAt;
                                     $("#btnStartWorkday").hide();
@@ -150,22 +151,22 @@
 
             function endWorkday() {
 
+                alert("Avslutar...");
+                var now = new Date();
+                var nowstring = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
 
-                    var now = new Date();
-                    var nowstring = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
+                currentWorkday.set("end", nowstring);
 
-                    currentWorkday.set("end", nowstring);
-
-                    currentWorkday.save(null, {
-                        success: function (object) {
-                            alert("Arbetsdagen slutar");
-                            $("#btnStartWorkday").show();
-                            $("#btnEndWorkday").hide();
-                        },
-                        error: function (model, error) {
-                            alert("Det uppstod ett fel");
-                        }
-                    });
+                currentWorkday.save(null, {
+                    success: function (object) {
+                        alert("Arbetsdagen slutar");
+                        $("#btnStartWorkday").show();
+                        $("#btnEndWorkday").hide();
+                    },
+                    error: function (model, error) {
+                        alert("Det uppstod ett fel");
+                    }
+                });
 
                
             };
@@ -375,7 +376,7 @@
 
                 <button id="btnStartWorkday" onclick="startWorkday();">Starta dagen</button> <br/>
                 <span id="workdayStarted"></span> <br/>
-                <button id="btnEndWorkday" style="display:none;" onclick="endWorkday();">Avsluta dagen</button> <br/>
+                <button id="btnEndWorkday" style="display:none" onclick="endWorkday();">Avsluta dagen</button> <br/>
 
                 <h1>Camera</h1>
                 <div id="info">
@@ -455,7 +456,7 @@
 			    </div>
 
                 
-                <a href="#" class="btn large"  id="btnLoginUser" style="display:none;" onclick="loginUser();">Logga in</a>
+                <a href="#" class="btn large"  id="btnLoginUser" onclick="loginUser();">Logga in</a>
                 <button  id="btnCreateUser" onclick="createUser();">Skapa ny användare</button>
                 <a href="#" class="btn large"  id="btnLogout" style="display:none;">Logga ut</a>
 
