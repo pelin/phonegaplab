@@ -34,7 +34,9 @@
 
                 var img = document.getElementById('camera_image');
                 var binaryphoto = getBase64Image(img);
-                
+
+                alert(binaryphoto);
+
                 taskPhoto.set("taskid", 1337);
                 taskPhoto.set("photo", binaryphoto);
 
@@ -314,7 +316,14 @@
                 <a href="#" class="btn large" onclick="getPicture();">Take Picture</a>
                 <a href="#" class="btn large" onclick="getImage();">Select Image from Library</a>
                 <br/>
-               	<a href="#" class="btn large" id="btnSaveTaskPhoto" onclick="saveTaskPhoto();" >Spara bilden med Parse</a> <br/>
+                <p>
+               	    <a href="#" class="btn large" id="btnSaveTaskPhoto" onclick="saveTaskPhoto();" >Spara bilden med Parse</a> <br/>
+                </p>
+
+                <p>
+               	    <a href="#" class="btn large" id="btnGetTaskPhoto" onclick="getTaskPhoto();" >Hämta bilden med Parse</a> <br/>
+                </p>
+
 
                 <p>Länk till andra sidan <a href="#bar">bar</a></p>
                 <p>Länk till 3 sidan <a href="#settings">inställningar</a></p>
