@@ -102,45 +102,11 @@
 
                     alert("Inloggning finns...");
 
-                    onDispayCoordinates();
+                    navigator.geolocation.getCurrentPosition(onContinueStartWorkday, onError);
 
-                    var user = Parse.User.current();
+                    
 
-                    var Workday = Parse.Object.extend("Workday");
-                    var workday = new Workday();
-
-                    var now = new Date();
-                    var nowstring = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
-
-                    workday.set("start", nowstring);
-                    workday.set("end", null);
-                    workday.set("user", user);
-                    placeObject.set("location", currentPosition);
-
-                    alert("Sparar...");
-
-                    workday.save(null, {
-                        success: function (object) {
-                            alert("Arbetsdagen börjar");
-
-                            workday.fetch({
-                                success: function (myObject) {
-                                    alert("Klart");
-                                    currentWorkday = myObject;
-                                    workdayStarted = currentWorkday.createdAt;
-                                    $("#btnStartWorkday").hide();
-                                    $("#btnEndWorkday").show();
-                                },
-                                error: function (myObject, error) {
-                                    alert(error);
-                                }
-                            });
-
-                        },
-                        error: function (model, error) {
-                            alert("Det uppstod ett fel");
-                        }
-                    });
+                    
 
                 }
                 else {
@@ -148,6 +114,46 @@
                     self.navigation = "#loginview";
                 }
             };
+
+            function onContinueStartWorkday(position) {
+                var user = Parse.User.current();
+
+                var Workday = Parse.Object.extend("Workday");
+                var workday = new Workday();
+
+                var now = new Date();
+                var nowstring = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
+
+                workday.set("start", nowstring);
+                workday.set("end", null);
+                workday.set("user", user);
+                placeObject.set("location", currentPosition);
+
+                alert("Sparar...");
+
+                workday.save(null, {
+                    success: function (object) {
+                        alert("Arbetsdagen börjar");
+
+                        workday.fetch({
+                            success: function (myObject) {
+                                alert("Klart");
+                                currentWorkday = myObject;
+                                workdayStarted = currentWorkday.createdAt;
+                                $("#btnStartWorkday").hide();
+                                $("#btnEndWorkday").show();
+                            },
+                            error: function (myObject, error) {
+                                alert(error);
+                            }
+                        });
+
+                    },
+                    error: function (model, error) {
+                        alert("Det uppstod ett fel");
+                    }
+                });
+            }
 
             function endWorkday() {
 

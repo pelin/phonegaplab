@@ -46,7 +46,7 @@ function loginUser() {
             status = "Inloggad som " + username;
         },
         error: function (user, error) {
-            alert("Felaktig inloggning (" + error + ")");
+            alert("Felaktig inloggning (" + error.message + ")");
         }
     });
 
