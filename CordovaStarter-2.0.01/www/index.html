@@ -6,8 +6,8 @@
 
     <title>Servicekoll 2</title>
         <script type="text/javascript" charset="utf-8" src="cordova-2.0.0-ios.js"></script>
-        <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-	    <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	    <script type="text/javascript" src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
         <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.0.15.min.js"></script>
 
         <link rel="stylesheet" href="css/reset.css">
@@ -17,6 +17,7 @@
 
         <script type="text/javascript"  charset="utf-8">
 
+            Parse.initialize("Ea6u4xJI1MOXQPHAnjHA4m4ivTLr8AE0hAwOTHzA", "pwZMfWDpRwn9G8TJf6kIlEuweYywx8zZqp641Ebj");
 
             var photodata = null;
 
@@ -29,7 +30,7 @@
                 taskPhoto.set("taskid", 1337);
                 taskPhoto.set("photo", photodata);
 
-            }
+            };
 
 
             function testSave() {
@@ -111,7 +112,7 @@
                 document.addEventListener("deviceready", function () {
                     deviceReady = true;
 
-                    Parse.initialize("Ea6u4xJI1MOXQPHAnjHA4m4ivTLr8AE0hAwOTHzA", "pwZMfWDpRwn9G8TJf6kIlEuweYywx8zZqp641Ebj");
+                    
 
                     alert("Cordova ready. Device=" + device.platform + " " + device.version);
                     console.log("Device=" + device.platform + " " + device.version);
@@ -120,7 +121,7 @@
                     if (!deviceReady) {
                         alert("Error: Cordova did not initialize.  Demo will not run correctly.");
                     }
-                }, 5000);
+                }, 10000);
             };
 
 
@@ -199,7 +200,7 @@
 
 
   </head>
-    <body onLoad="init();" >
+    <body onload="init();" >
 
         <!-- Start of first page -->
         <div data-role="page" id="home">
@@ -209,7 +210,7 @@
             </div><!-- /header -->
 
             <div data-role="content">	
-                <div id="main">
+               <!-- <div id="main">
                     <div style="display:none" class="error">
                       Looks like there was a problem saving the test object. Make sure you've set your application ID and javascript key correctly in the call to <code>Parse.initialize</code> in this file.
                     </div>
@@ -222,7 +223,7 @@
                           testObject.save({foo: "bar"});
                         </code>
                     </div>
-                </div>
+                </div>-->
 
                 <button>Starta dagen</button> <br/>
                 <button>Avsluta dagen</button> <br/>
