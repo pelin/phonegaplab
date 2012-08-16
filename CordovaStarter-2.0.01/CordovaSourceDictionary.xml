@@ -5,6 +5,7 @@
     <FilePath Value="www\css\reset.css"/>
     <FilePath Value="www\css\styles.css"/>
     <FilePath Value="www\js\index.js"/>
+    <FilePath Value="www\user.js"/>
     <FilePath Value="www\cordova-2.0.0.js"/>
     <FilePath Value="www\css\index.css"/>
     <FilePath Value="www\img\cordova.png"/>

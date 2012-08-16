@@ -9,6 +9,7 @@
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 	    <script type="text/javascript" src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
         <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.0.15.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="user.js"></script>
 
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/styles.css">
@@ -92,18 +93,18 @@
             };
 
 
-//            function testSave() {
-//                var TestObject = Parse.Object.extend("TestObject");
-//                var testObject = new TestObject();
-//                testObject.save({ foo: "bar" }, {
-//                    success: function (object) {
-//                        $(".success").show();
-//                    },
-//                    error: function (model, error) {
-//                        $(".error").show();
-//                    }
-//                });
-//            };
+            function startWorkday() {
+                var Workday = Parse.Object.extend("Workday");
+                var workday = new Workday();
+                workday.save({ foo: "bar" }, {
+                    success: function (object) {
+                        alert("Arbetsdagen börjar");
+                    },
+                    error: function (model, error) {
+                        alert("Det uppstod ett fel");
+                    }
+                });
+            };
 
 
             //------------------------------------------------------
@@ -193,15 +194,16 @@
             function init() {
                 document.addEventListener("deviceready", function () {
                     deviceReady = true;
-
-                    
-
-                    alert("Cordova ready. Device=" + device.platform + " " + device.version);
+                    alert("Ramverk laddat. Enhet=" + device.platform + " " + device.version);
                     console.log("Device=" + device.platform + " " + device.version);
+
+                    initUser();
+
+
                 }, false);
                 window.setTimeout(function () {
                     if (!deviceReady) {
-                        alert("Error: Cordova did not initialize.  Demo will not run correctly.");
+                        alert("Fel: Appen kan inte startas.  Vänligen avsluta och försök igen.");
                     }
                 }, 10000);
             };
@@ -292,6 +294,10 @@
             </div><!-- /header -->
 
             <div data-role="content">	
+
+                
+                <p><a href="#loginview">Logga in</a></p>
+
                 <div id="main">
                     <div style="display:none" class="error">
                       Fel!
@@ -326,9 +332,14 @@
 
 
                 <p>Länk till andra sidan <a href="#bar">bar</a></p>
-                <p>Länk till 3 sidan <a href="#settings">inställningar</a></p>
+                
 
             </div><!-- /content -->
+
+
+            <div data-role="footer">
+		        <h4>Page Footer</h4>
+	        </div><!-- /footer -->
 
         </div><!-- /page -->
 
@@ -358,25 +369,28 @@
 	        </div><!-- /footer -->
         </div><!-- /page -->
 
-        <!-- Start of settings page -->
-        <div data-role="page" id="settings">
+        <!-- Start of create user page -->
+        <div data-role="page" id="loginview">
 
 	        <div data-role="header">
-		        <h1>Inställningar</h1>
+		        <h1>Skapa användare</h1>
 	        </div><!-- /header -->
 
 	        <div data-role="content">	
                
                 <div data-role="fieldcontain" class="ui-hide-label">
 	                <label for="username">Användarnamn:</label>
-	                <input type="text" name="username" id="username" value="" placeholder="Användarnamn"/>
+	                <input type="text" name="username" id="txtUsername" value="" placeholder="Användarnamn"/>
                 </div>
                 <div data-role="fieldcontain">
 	                <label for="password">Password:</label>
-	                <input type="password" name="password" id="password" value="" placeholder="Lösenord"/>
+	                <input type="password" name="password" id="txtPassword" value="" placeholder="Lösenord"/>
 			    </div>
 
-                <button>Spara</button>
+                
+                <button id="btnLoginUser" style="display:none;" onclick="loginUser">Logga in</button>
+                <button id="btnCreateUser" onclick="createUser">Skapa ny användare</button>
+                <button id="btnLogout" style="display:none;">Logga ut</button>
 
 		        <p><a href="#home">Tillbaka</a></p>	
 	        </div><!-- /content -->
