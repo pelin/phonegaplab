@@ -96,7 +96,11 @@
 
             function startWorkday() {
 
+                alert("Startar");
+
                 if (isUserLoggedIn()) {
+
+                    alert("Inloggning finns...");
 
                     onDispayCoordinates();
 
@@ -112,6 +116,8 @@
                     workday.set("end", null);
                     workday.set("user", user);
                     placeObject.set("location", currentPosition);
+
+                    alert("Sparar...");
 
                     workday.save(null, {
                         success: function (object) {
@@ -356,6 +362,7 @@
 
             <div data-role="content">	
 
+                <p><a href="#loginview">Logga in...</a></p>	
                 
                 <div id="main">
                     <div style="display:none" class="error">
