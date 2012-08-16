@@ -5,11 +5,13 @@ function initUser() {
         var user = Parse.User.current();
         document.getElementById('txtUsername').innerHTML = user.username;
         document.getElementById('txtPassword').innerHTML = user.password;
-        self.location = "#home";
+        //self.location = "#home";
     }
     else {
-        self.location = "#loginview";
-        
+        //self.location = "#loginview";
+
+        $.mobile.changePage("#loginview");
+
     }
 
 };
@@ -53,8 +55,8 @@ function loginUser() {
 
 function createUser() {
 
-    var username = $('txtUsername').innerHTML;
-    var password = $('txtPassword').innerHTML;
+    var username = $('#txtUsername').text;
+    var password = $('#txtPassword').text;
 
     alert(username);
 
@@ -65,7 +67,10 @@ function createUser() {
     user.signUp(null, {
         success: function (user) {
             alert("Ny användare skapad: " + username);
-            self.location = "#home";
+
+            $.mobile.changePage("#home");
+
+            //self.location = "#home";
         },
         error: function (user, error) {
             // Show the error message somewhere and let the user try again.
