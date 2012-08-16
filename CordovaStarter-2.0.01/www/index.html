@@ -5,12 +5,40 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
 
     <title>Servicekoll 2</title>
-        <script type="text/javascript" charset="utf-8" src="cordova-2.0.0.js"></script>
-	    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
-	    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="cordova-2.0.0-ios.js"></script>
+	    
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/styles.css">
+        <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.0.15.min.js"></script>
+
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+	    
+        
+        <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 	    <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
         
+
+
         <script type="text/javascript"  charset="utf-8">
+
+            Parse.initialize("Ea6u4xJI1MOXQPHAnjHA4m4ivTLr8AE0hAwOTHzA", "pwZMfWDpRwn9G8TJf6kIlEuweYywx8zZqp641Ebj");
+
+            function testSave() {
+                var TestObject = Parse.Object.extend("TestObject");
+                var testObject = new TestObject();
+                testObject.save({ foo: "bar" }, {
+                    success: function (object) {
+                        $(".success").show();
+                    },
+                    error: function (model, error) {
+                        $(".error").show();
+                    }
+                });
+            };
+
+
+            //------------------------------------------------------
+
 
             var deviceReady = false;
 
@@ -27,19 +55,19 @@
                 //    destinationType: Camera.DestinationType.FILE_URI, sourceType : Camera.PictureSourceType.CAMERA });
 
                 navigator.camera.getPicture(
-            function (data) {
-                var img = document.getElementById('camera_image');
-                img.style.visibility = "visible";
-                img.style.display = "block";
-                img.src = "data:image/jpeg;base64," + data;
-                //img.src = data;
-                document.getElementById('camera_status').innerHTML = "Success";
-            },
-            function (e) {
-                console.log("Error getting picture: " + e);
-                document.getElementById('camera_status').innerHTML = "Error getting picture.";
-            },
-            { quality: 50, destinationType: navigator.camera.DestinationType.DATA_URL, sourceType: navigator.camera.PictureSourceType.CAMERA });
+                function (data) {
+                    var img = document.getElementById('camera_image');
+                    img.style.visibility = "visible";
+                    img.style.display = "block";
+                    img.src = "data:image/jpeg;base64," + data;
+                    //img.src = data;
+                    document.getElementById('camera_status').innerHTML = "Success";
+                },
+                function (e) {
+                    console.log("Error getting picture: " + e);
+                    document.getElementById('camera_status').innerHTML = "Error getting picture.";
+                },
+                { quality: 50, destinationType: navigator.camera.DestinationType.DATA_URL, sourceType: navigator.camera.PictureSourceType.CAMERA });
             };
 
             /**
@@ -173,7 +201,21 @@
             </div><!-- /header -->
 
             <div data-role="content">	
-                
+                <div id="main">
+                    <div style="display:none" class="error">
+                      Looks like there was a problem saving the test object. Make sure you've set your application ID and javascript key correctly in the call to <code>Parse.initialize</code> in this file.
+                    </div>
+                    <div style="display:none" class="success">
+                      <p>We've also just created your first object using the following code:</p>
+      
+                        <code>
+                          var TestObject = Parse.Object.extend("TestObject");<br/>
+                          var testObject = new TestObject();<br/>
+                          testObject.save({foo: "bar"});
+                        </code>
+                    </div>
+                </div>
+
                 <button>Starta dagen</button> <br/>
                 <button>Avsluta dagen</button> <br/>
 
@@ -185,8 +227,8 @@
                 <h2>Action</h2>
                 <a href="#" class="btn large" onclick="getPicture();">Take Picture</a>
                 <a href="#" class="btn large" onclick="getImage();">Select Image from Library</a>
-                
-               	
+                <br/>
+               	<button onclick="testSave()">Spara bilden med Parse</button> <br/>
 
                 <p>Länk till andra sidan <a href="#bar">bar</a></p>
                 <p>Länk till 3 sidan <a href="#settings">inställningar</a></p>
@@ -208,7 +250,7 @@
              
                 <h1>Position</h1>
                 <p id="demo">Klicka här:</p>
-                <button onclick="onDispayCoordinates();">Visa position</button> <br>
+                <button onclick="onDispayCoordinates();">Visa position</button> <br/>
     
                 <div id="koord"></div>
                 <div id="mapholder"></div>
