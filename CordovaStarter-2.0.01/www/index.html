@@ -20,6 +20,7 @@
             Parse.initialize("Ea6u4xJI1MOXQPHAnjHA4m4ivTLr8AE0hAwOTHzA", "pwZMfWDpRwn9G8TJf6kIlEuweYywx8zZqp641Ebj");
 
             var photodata = null;
+            var lastSavedPhotoId = "";
 
             function saveTaskPhoto(){
 
@@ -31,8 +32,11 @@
 
                 var taskPhoto = new TaskPhoto();
 
+                var img = document.getElementById('camera_image');
+                var binaryphoto = getBase64Image(img);
+                
                 taskPhoto.set("taskid", 1337);
-                taskPhoto.set("photo", photodata);
+                taskPhoto.set("photo", binaryphoto);
 
                 taskPhoto.save(null, {
                     success: function (taskPhoto) {
@@ -42,6 +46,7 @@
                         taskPhoto.fetch({
                             success: function (myObject) {
                                 alert(myObject.id);
+                                lastSavedPhotoId = myObject.id;
                             },
                             error: function (myObject, error) {
                                 alert(error);
@@ -56,6 +61,31 @@
                     }
                 });
 
+                
+            };
+
+            function getTaskPhoto() {
+
+                var TaskPhoto = Parse.Object.extend("TaskPhoto");
+                var query = new Parse.Query(TaskPhoto);
+                query.get(lastSavedPhotoId, {
+                    success: function (taskPhoto) {
+                        alert("Success loading photo");
+
+                        var img = document.getElementById('camera_image_loaded');
+                        img.style.visibility = "visible";
+                        img.style.display = "block";
+                        var data = taskPhoto.get("photo");
+                        img.src = "data:image/jpeg;base64," + data;
+                        
+                    },
+                    error: function (taskPhoto, error) {
+                        alert("Error loading");
+                    }
+                });
+
+                
+                
                 
             };
 
@@ -78,6 +108,25 @@
 
 
             var deviceReady = false;
+
+            function getBase64Image(img) {
+                // Create an empty canvas element
+                var canvas = document.createElement("canvas");
+                canvas.width = img.width;
+                canvas.height = img.height;
+
+                // Copy the image contents to the canvas
+                var ctx = canvas.getContext("2d");
+                ctx.drawImage(img, 0, 0);
+
+                // Get the data-URL formatted image
+                // Firefox supports PNG and JPEG. You could check img.src to guess the
+                // original format, but be aware the using "image/jpg" will re-encode the image.
+                var dataURL = canvas.toDataURL("image/png");
+
+                return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+            }
+
 
             //-------------------------------------------------------------------------
             // Camera
@@ -257,6 +306,9 @@
                 <div id="info">
                     Status: <span id="camera_status"></span><br/>
                     <img style="width:120px;height:120px;visibility:hidden;display:none;" id="camera_image" src="" />
+
+                    <img style="width:120px;height:120px;visibility:hidden;display:none;" id="camera_image_loaded" src="" />
+
                 </div>
                 <h2>Action</h2>
                 <a href="#" class="btn large" onclick="getPicture();">Take Picture</a>

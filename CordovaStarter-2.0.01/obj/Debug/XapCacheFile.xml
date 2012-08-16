@@ -1,10 +1,10 @@
-﻿<xapCache source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\Bin\Debug\CordovaStarter_2._0._01.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="2012-08-16 11:18:47">
+﻿<xapCache source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\Bin\Debug\CordovaStarter_2._0._01.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="2012-08-16 11:46:37">
   <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\Bin\Debug\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="2012-08-15 16:01:16" />
   <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\Background.png" archivePath="Background.png" lastWriteTime="2012-08-15 15:59:32" />
   <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\ApplicationIcon.png" archivePath="ApplicationIcon.png" lastWriteTime="2012-08-15 15:59:32" />
   <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\obj\Debug\CordovaStarter-2.0.01.dll" archivePath="CordovaStarter-2.0.01.dll" lastWriteTime="2012-08-16 10:16:47" />
   <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\CordovaLib\WP7CordovaClassLib.dll" archivePath="WP7CordovaClassLib.dll" lastWriteTime="2012-08-15 15:59:32" />
-  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\CordovaSourceDictionary.xml" archivePath="CordovaSourceDictionary.xml" lastWriteTime="2012-08-16 11:18:46" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\CordovaSourceDictionary.xml" archivePath="CordovaSourceDictionary.xml" lastWriteTime="2012-08-16 11:46:36" />
   <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\www\cordova-2.0.0-ios.js" archivePath="www\cordova-2.0.0-ios.js" lastWriteTime="2012-08-16 09:46:45" />
   <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\www\css\reset.css" archivePath="www\css\reset.css" lastWriteTime="2012-08-16 09:54:23" />
   <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\www\css\styles.css" archivePath="www\css\styles.css" lastWriteTime="2012-08-16 09:54:23" />
@@ -13,7 +13,7 @@
   <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\www\cordova-2.0.0.js" archivePath="www\cordova-2.0.0.js" lastWriteTime="2012-08-16 10:16:47" />
   <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\www\css\index.css" archivePath="www\css\index.css" lastWriteTime="2012-08-15 15:59:32" />
   <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\www\img\cordova.png" archivePath="www\img\cordova.png" lastWriteTime="2012-08-15 15:59:32" />
-  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\www\index.html" archivePath="www\index.html" lastWriteTime="2012-08-16 11:18:44" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\www\index.html" archivePath="www\index.html" lastWriteTime="2012-08-16 11:46:32" />
   <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\SplashScreenImage.jpg" archivePath="SplashScreenImage.jpg" lastWriteTime="2012-08-15 15:59:32" />
   <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="2012-08-15 16:01:16" />
   <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\Bin\Debug\www\cordova-2.0.0.js" archivePath="www\cordova-2.0.0.js" lastWriteTime="2012-08-16 10:16:47" />
