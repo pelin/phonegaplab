@@ -36,8 +36,8 @@ function getCurrentUser() {
 
 function loginUser() {
 
-    var username = document.getElementById('txtUsername').innerHTML;
-    var password = document.getElementById('txtPassword').innerHTML;
+    var username = $('txtUsername').val();
+    var password = $('txtPassword').val();
 
     var status = "";
 
@@ -55,8 +55,10 @@ function loginUser() {
 
 function createUser() {
 
-    var username = $('#txtUsername').text;
-    var password = $('#txtPassword').text;
+    alert(username);
+
+    var username = $('#txtUsername').val();
+    var password = $('#txtPassword').val();
 
     alert(username);
 
@@ -78,4 +80,4 @@ function createUser() {
         }
     });
 
-}
+};

@@ -300,8 +300,8 @@
         <!-- Start of first page -->
         <div data-role="page" id="home">
 
-            <div data-role="header">
-                <h1>Servicekoll 0.2 </h1>
+            <div data-role="header"  data-position="fixed">
+                <h3>Servicekoll 0.2 </h3>
             </div><!-- /header -->
 
             <div data-role="content">	
@@ -359,8 +359,8 @@
         <!-- Start of second page -->
         <div data-role="page" id="bar">
 
-	        <div data-role="header">
-		        <h1>Bar</h1>
+	        <div data-role="header"  data-position="fixed">
+		        <h2>Bar</h2>
 	        </div><!-- /header -->
 
 	        <div data-role="content">	
@@ -383,8 +383,8 @@
         <!-- Start of create user page -->
         <div data-role="page" id="loginview">
 
-	        <div data-role="header">
-		        <h1>Skapa användare</h1>
+	        <div data-role="header"  data-position="fixed">
+		        <h2>Skapa användare</h2>
 	        </div><!-- /header -->
 
 	        <div data-role="content">	
@@ -399,14 +399,14 @@
 			    </div>
 
                 
-                <button id="btnLoginUser" style="display:none;" onclick="loginUser();">Logga in</button>
-                <button id="btnCreateUser" onclick="createUser();">Skapa ny användare</button>
-                <button id="btnLogout" style="display:none;">Logga ut</button>
+                <a href="#" class="btn large"  id="btnLoginUser" style="display:none;" onclick="loginUser();">Logga in</a>
+                <button  id="btnCreateUser" onclick="createUser();">Skapa ny användare</button>
+                <a href="#" class="btn large"  id="btnLogout" style="display:none;">Logga ut</a>
 
 		        <p><a href="#home">Tillbaka</a></p>	
 	        </div><!-- /content -->
 
-	        <div data-role="footer">
+	        <div data-role="footer"  data-position="fixed">
 		        <h4>Page Footer</h4>
 	        </div><!-- /footer -->
         </div><!-- /page -->
