@@ -94,16 +94,28 @@
 
 
             function startWorkday() {
-                var Workday = Parse.Object.extend("Workday");
-                var workday = new Workday();
-                workday.save({ foo: "bar" }, {
-                    success: function (object) {
-                        alert("Arbetsdagen börjar");
-                    },
-                    error: function (model, error) {
-                        alert("Det uppstod ett fel");
-                    }
-                });
+
+                if (isUserLoggedIn()) {
+
+                    var user = Parse.User.current();
+
+                    var Workday = Parse.Object.extend("Workday");
+                    var workday = new Workday();
+
+                    workday.save({ user: user }, {
+                        success: function (object) {
+                            alert("Arbetsdagen börjar");
+                        },
+                        error: function (model, error) {
+                            alert("Det uppstod ett fel");
+                        }
+                    });
+
+                }
+                else {
+                    alert("Du måste logga in först");
+                    self.navigation = "#loginview";
+                }
             };
 
 
@@ -388,8 +400,8 @@
 			    </div>
 
                 
-                <button id="btnLoginUser" style="display:none;" onclick="loginUser">Logga in</button>
-                <button id="btnCreateUser" onclick="createUser">Skapa ny användare</button>
+                <button id="btnLoginUser" style="display:none;" onclick="loginUser();">Logga in</button>
+                <button id="btnCreateUser" onclick="createUser();">Skapa ny användare</button>
                 <button id="btnLogout" style="display:none;">Logga ut</button>
 
 		        <p><a href="#home">Tillbaka</a></p>	
