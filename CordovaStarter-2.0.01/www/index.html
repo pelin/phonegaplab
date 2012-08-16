@@ -30,21 +30,43 @@
                 taskPhoto.set("taskid", 1337);
                 taskPhoto.set("photo", photodata);
 
-            };
-
-
-            function testSave() {
-                var TestObject = Parse.Object.extend("TestObject");
-                var testObject = new TestObject();
-                testObject.save({ foo: "bar" }, {
-                    success: function (object) {
+                taskPhoto.save(null, {
+                    success: function (taskPhoto) {
                         $(".success").show();
+
+                        taskPhoto.fetch({
+                            success: function (myObject) {
+                                alert(myObject.id);
+                            },
+                            error: function (myObject, error) {
+                                alert(error);
+                            }
+                        });
+
+
+
                     },
-                    error: function (model, error) {
+                    error: function (taskPhoto, error) {
                         $(".error").show();
                     }
                 });
+
+                
             };
+
+
+//            function testSave() {
+//                var TestObject = Parse.Object.extend("TestObject");
+//                var testObject = new TestObject();
+//                testObject.save({ foo: "bar" }, {
+//                    success: function (object) {
+//                        $(".success").show();
+//                    },
+//                    error: function (model, error) {
+//                        $(".error").show();
+//                    }
+//                });
+//            };
 
 
             //------------------------------------------------------
@@ -95,6 +117,10 @@
                         img.style.display = "block";
                         //img.src = "data:image/jpeg;base64," + data;
                         img.src = data;
+
+                        photodata = data;
+                        $("btnSaveTaskPhoto").show();
+
                         document.getElementById('camera_status').innerHTML = "Success";
                     },
                     function (e) {
@@ -210,20 +236,14 @@
             </div><!-- /header -->
 
             <div data-role="content">	
-               <!-- <div id="main">
+                <div id="main">
                     <div style="display:none" class="error">
-                      Looks like there was a problem saving the test object. Make sure you've set your application ID and javascript key correctly in the call to <code>Parse.initialize</code> in this file.
+                      Fel!
                     </div>
                     <div style="display:none" class="success">
-                      <p>We've also just created your first object using the following code:</p>
-      
-                        <code>
-                          var TestObject = Parse.Object.extend("TestObject");<br/>
-                          var testObject = new TestObject();<br/>
-                          testObject.save({foo: "bar"});
-                        </code>
+                      <p>Sparad!</p>
                     </div>
-                </div>-->
+                </div>
 
                 <button>Starta dagen</button> <br/>
                 <button>Avsluta dagen</button> <br/>
@@ -237,7 +257,7 @@
                 <a href="#" class="btn large" onclick="getPicture();">Take Picture</a>
                 <a href="#" class="btn large" onclick="getImage();">Select Image from Library</a>
                 <br/>
-               	<button id="btnSaveTaskPhoto" onclick="saveTaskPhoto()" style="display:none">Spara bilden med Parse</button> <br/>
+               	<button id="btnSaveTaskPhoto" onclick="saveTaskPhoto();" style="display:none;">Spara bilden med Parse</button> <br/>
 
                 <p>Länk till andra sidan <a href="#bar">bar</a></p>
                 <p>Länk till 3 sidan <a href="#settings">inställningar</a></p>
