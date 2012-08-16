@@ -22,6 +22,8 @@
 
             var photodata = null;
             var lastSavedPhotoId = "";
+            var currentWorkday = "";
+            var currentPosition = null;
 
             function saveTaskPhoto(){
 
@@ -96,14 +98,37 @@
 
                 if (isUserLoggedIn()) {
 
+                    onDispayCoordinates();
+
                     var user = Parse.User.current();
 
                     var Workday = Parse.Object.extend("Workday");
                     var workday = new Workday();
 
-                    workday.save({ user: user }, {
+                    var now = new Date();
+                    var nowstring = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
+
+                    workday.set("start", nowstring);
+                    workday.set("end", null);
+                    workday.set("user", user);
+                    placeObject.set("location", currentPosition);
+
+                    workday.save(null, {
                         success: function (object) {
                             alert("Arbetsdagen börjar");
+
+                            workday.fetch({
+                                success: function (myObject) {
+                                    currentWorkday = myObject;
+                                    workdayStarted = currentWorkday.createdAt;
+                                    $("#btnStartWorkday").hide();
+                                    $("#btnEndWorkday").show();
+                                },
+                                error: function (myObject, error) {
+                                    alert(error);
+                                }
+                            });
+
                         },
                         error: function (model, error) {
                             alert("Det uppstod ett fel");
@@ -117,6 +142,27 @@
                 }
             };
 
+            function endWorkday() {
+
+
+                    var now = new Date();
+                    var nowstring = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
+
+                    currentWorkday.set("end", nowstring);
+
+                    currentWorkday.save(null, {
+                        success: function (object) {
+                            alert("Arbetsdagen slutar");
+                            $("#btnStartWorkday").show();
+                            $("#btnEndWorkday").hide();
+                        },
+                        error: function (model, error) {
+                            alert("Det uppstod ett fel");
+                        }
+                    });
+
+               
+            };
 
             //------------------------------------------------------
 
@@ -259,6 +305,10 @@
             }
 
             function showPosition(position) {
+
+                currentPosition = new Parse.GeoPoint({ latitude: position.coords.latitude, longitude: position.coords.longitude });
+
+
                 var latlon = position.coords.latitude + "," + position.coords.longitude;
 
                 var img_url = "http://maps.googleapis.com/maps/api/staticmap?center="
@@ -307,8 +357,6 @@
             <div data-role="content">	
 
                 
-                <p><a href="#loginview">Logga in</a></p>
-
                 <div id="main">
                     <div style="display:none" class="error">
                       Fel!
@@ -318,8 +366,9 @@
                     </div>
                 </div>
 
-                <button>Starta dagen</button> <br/>
-                <button>Avsluta dagen</button> <br/>
+                <button id="btnStartWorkday" onclick="startWorkday();">Starta dagen</button> <br/>
+                <span id="workdayStarted"></span> <br/>
+                <button id="btnEndWorkday" style="display:none;" onclick="endWorkday();">Avsluta dagen</button> <br/>
 
                 <h1>Camera</h1>
                 <div id="info">
