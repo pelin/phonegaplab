@@ -47,19 +47,19 @@
             */
             function getImage() {
                 navigator.camera.getPicture(
-            function (data) {
-                var img = document.getElementById('camera_image');
-                img.style.visibility = "visible";
-                img.style.display = "block";
-                //img.src = "data:image/jpeg;base64," + data;
-                img.src = data;
-                document.getElementById('camera_status').innerHTML = "Success";
-            },
-            function (e) {
-                console.log("Error getting picture: " + e);
-                document.getElementById('camera_status').innerHTML = "Error getting picture.";
-            },
-            { quality: 50, destinationType: navigator.camera.DestinationType.FILE_URI, sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY });
+                    function (data) {
+                        var img = document.getElementById('camera_image');
+                        img.style.visibility = "visible";
+                        img.style.display = "block";
+                        //img.src = "data:image/jpeg;base64," + data;
+                        img.src = data;
+                        document.getElementById('camera_status').innerHTML = "Success";
+                    },
+                    function (e) {
+                        console.log("Error getting picture: " + e);
+                        document.getElementById('camera_status').innerHTML = "Error getting picture.";
+                    },
+                    { quality: 50, destinationType: navigator.camera.DestinationType.FILE_URI, sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY });
             };
 
 
@@ -69,14 +69,15 @@
             function init() {
                 document.addEventListener("deviceready", function () {
                     deviceReady = true;
+                    alert("Cordova ready");
                     console.log("Device=" + device.platform + " " + device.version);
                 }, false);
                 window.setTimeout(function () {
                     if (!deviceReady) {
                         alert("Error: Cordova did not initialize.  Demo will not run correctly.");
                     }
-                }, 1000);
-            }
+                }, 5000);
+            };
 
            
 
