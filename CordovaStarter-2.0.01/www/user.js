@@ -3,8 +3,8 @@ function initUser() {
 
     if (isUserLoggedIn()) {
         var user = Parse.User.current();
-        document.getElementById('txtUsername').innerHTML = user.username;
-        document.getElementById('txtPassword').innerHTML = user.password;
+        document.getElementById('txtUsername').val() = user.username;
+        document.getElementById('txtPassword').val() = user.password;
         //self.location = "#home";
     }
     else {
@@ -36,8 +36,8 @@ function getCurrentUser() {
 
 function loginUser() {
 
-    var username = $('txtUsername').val();
-    var password = $('txtPassword').val();
+    var username = $('#txtUsername').val();
+    var password = $('#txtPassword').val();
 
     var status = "";
 

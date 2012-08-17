@@ -20,25 +20,21 @@
 
             Parse.initialize("Ea6u4xJI1MOXQPHAnjHA4m4ivTLr8AE0hAwOTHzA", "pwZMfWDpRwn9G8TJf6kIlEuweYywx8zZqp641Ebj");
 
+            var servicekoll = servicekoll || {};
+            
             var photodata = null;
             var lastSavedPhotoId = "";
             var currentWorkday = "";
-            var currentPosition = null;
+            //var currentPosition = null;
 
             function saveTaskPhoto(){
-
-
                 $.mobile.showPageLoadingMsg("Bild", "Sparar bild...");       
 
                 var TaskPhoto = Parse.Object.extend("TaskPhoto");
-
                 var taskPhoto = new TaskPhoto();
-
                 var img = document.getElementById('camera_image');
                 var binaryphoto = getBase64Image(img);
-
                 alert(binaryphoto);
-
                 taskPhoto.set("taskid", 1337);
                 taskPhoto.set("photo", binaryphoto);
 
@@ -65,7 +61,8 @@
                     }
                 });
 
-                
+                $.mobile.hidePageLoadingMsg();
+
             };
 
             function getTaskPhoto() {
@@ -95,29 +92,27 @@
 
 
             function startWorkday() {
+                $.mobile.showPageLoadingMsg("Arbetsdag", "Startar arbetsdag..."); 
 
                 alert("Startar");
 
                 if (isUserLoggedIn()) {
-
                     alert("Inloggning finns...");
-
                     navigator.geolocation.getCurrentPosition(onContinueStartWorkday, onError);
-
-                    
-
-                    
-
                 }
                 else {
                     alert("Du måste logga in först");
                     self.navigation = "#loginview";
                 }
+
+                $.mobile.hidePageLoadingMsg();
+
             };
 
             function onContinueStartWorkday(position) {
-                var user = Parse.User.current();
+                alert("Position hämtad...");
 
+                var user = Parse.User.current();
                 var Workday = Parse.Object.extend("Workday");
                 var workday = new Workday();
 
@@ -127,7 +122,7 @@
                 workday.set("start", nowstring);
                 workday.set("end", null);
                 workday.set("user", user);
-                placeObject.set("location", currentPosition);
+                placeObject.set("location", position);
 
                 alert("Sparar...");
 
