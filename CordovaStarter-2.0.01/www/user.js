@@ -39,6 +39,9 @@ function loginUser() {
     var username = $('#txtUsername').val();
     var password = $('#txtPassword').val();
 
+    alert(username);
+    alert(password);
+
     var status = "";
 
     Parse.User.logIn(username, password, {
