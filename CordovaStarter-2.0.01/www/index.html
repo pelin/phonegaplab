@@ -10,6 +10,8 @@
 	    <script type="text/javascript" src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
         <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.0.15.min.js"></script>
         <script type="text/javascript" charset="utf-8" src="user.js"></script>
+        <script type="text/javascript" charset="utf-8" src="navigation.js"></script>
+        <script type="text/javascript" charset="utf-8" src="camera.js"></script>
 
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/styles.css">
@@ -25,71 +27,6 @@
             var photodata = null;
             var lastSavedPhotoId = "";
             var currentWorkday = "";
-            //var currentPosition = null;
-
-            function saveTaskPhoto(){
-                $.mobile.showPageLoadingMsg("Bild", "Sparar bild...");       
-
-                var TaskPhoto = Parse.Object.extend("TaskPhoto");
-                var taskPhoto = new TaskPhoto();
-                var img = document.getElementById('camera_image');
-                var binaryphoto = getBase64Image(img);
-                alert(binaryphoto);
-                taskPhoto.set("taskid", 1337);
-                taskPhoto.set("photo", binaryphoto);
-
-                taskPhoto.save(null, {
-                    success: function (taskPhoto) {
-                        alert("success");
-                        $(".success").show();
-
-                        taskPhoto.fetch({
-                            success: function (myObject) {
-                                alert(myObject.id);
-                                lastSavedPhotoId = myObject.id;
-                            },
-                            error: function (myObject, error) {
-                                alert(error);
-                            }
-                        });
-
-
-
-                    },
-                    error: function (taskPhoto, error) {
-                        $(".error").show();
-                    }
-                });
-
-                $.mobile.hidePageLoadingMsg();
-
-            };
-
-            function getTaskPhoto() {
-
-                var TaskPhoto = Parse.Object.extend("TaskPhoto");
-                var query = new Parse.Query(TaskPhoto);
-                query.get(lastSavedPhotoId, {
-                    success: function (taskPhoto) {
-                        alert("Success loading photo");
-
-                        var img = document.getElementById('camera_image_loaded');
-                        img.style.visibility = "visible";
-                        img.style.display = "block";
-                        var data = taskPhoto.get("photo");
-                        img.src = "data:image/jpeg;base64," + data;
-                        
-                    },
-                    error: function (taskPhoto, error) {
-                        alert("Error loading");
-                    }
-                });
-
-                
-                
-                
-            };
-
 
             function startWorkday() {
                 $.mobile.showPageLoadingMsg("Arbetsdag", "Startar arbetsdag..."); 
@@ -125,7 +62,7 @@
                 workday.set("location", position);
 
                 alert("Sparar...");
-
+                 
                 workday.save(null, {
                     success: function (object) {
                         alert("Arbetsdagen börjar");
@@ -172,86 +109,7 @@
                
             };
 
-            //------------------------------------------------------
-
-
             var deviceReady = false;
-
-            function getBase64Image(img) {
-                // Create an empty canvas element
-                var canvas = document.createElement("canvas");
-                canvas.width = img.width;
-                canvas.height = img.height;
-
-                // Copy the image contents to the canvas
-                var ctx = canvas.getContext("2d");
-                ctx.drawImage(img, 0, 0);
-
-                // Get the data-URL formatted image
-                // Firefox supports PNG and JPEG. You could check img.src to guess the
-                // original format, but be aware the using "image/jpg" will re-encode the image.
-                var dataURL = canvas.toDataURL("image/png");
-
-                return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-            }
-
-
-            //-------------------------------------------------------------------------
-            // Camera
-            //-------------------------------------------------------------------------
-
-            /**
-            * Capture picture
-            */
-            function getPicture() {
-
-                //navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
-                //    destinationType: Camera.DestinationType.FILE_URI, sourceType : Camera.PictureSourceType.CAMERA });
-
-                navigator.camera.getPicture(
-                function (data) {
-                    var img = document.getElementById('camera_image');
-                    img.style.visibility = "visible";
-                    img.style.display = "block";
-                    img.src = "data:image/jpeg;base64," + data;
-
-                    photodata = data;
-                    $("btnSaveTaskPhoto").show();
-
-                    //img.src = data;
-                    document.getElementById('camera_status').innerHTML = "Success";
-                },
-                function (e) {
-                    console.log("Error getting picture: " + e);
-                    document.getElementById('camera_status').innerHTML = "Error getting picture.";
-                },
-                { quality: 50, destinationType: navigator.camera.DestinationType.DATA_URL, sourceType: navigator.camera.PictureSourceType.CAMERA });
-            };
-
-            /**
-            * Select image from library
-            */
-            function getImage() {
-                navigator.camera.getPicture(
-                    function (data) {
-                        var img = document.getElementById('camera_image');
-                        img.style.visibility = "visible";
-                        img.style.display = "block";
-                        //img.src = "data:image/jpeg;base64," + data;
-                        img.src = data;
-
-                        photodata = data;
-                        $("btnSaveTaskPhoto").show();
-
-                        document.getElementById('camera_status').innerHTML = "Success";
-                    },
-                    function (e) {
-                        console.log("Error getting picture: " + e);
-                        document.getElementById('camera_status').innerHTML = "Error getting picture.";
-                    },
-                    { quality: 50, destinationType: navigator.camera.DestinationType.FILE_URI, sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY });
-            };
-
 
             /**
             * Function called when page has finished loading.
@@ -272,80 +130,6 @@
                     }
                 }, 10000);
             };
-
-
-            function onDispayCoordinates() {
-                navigator.geolocation.getCurrentPosition(onSuccess, onError);
-            }
-
-            // onSuccess Geolocation
-            //
-            function onSuccess(position) {
-                var element = document.getElementById('geolocation');
-                element.innerHTML = 'Latitude: ' + position.coords.latitude + '<br />' +
-                                'Longitude: ' + position.coords.longitude + '<br />' +
-                                'Altitude: ' + position.coords.altitude + '<br />' +
-                                'Accuracy: ' + position.coords.accuracy + '<br />' +
-                                'Altitude Accuracy: ' + position.coords.altitudeAccuracy + '<br />' +
-                                'Heading: ' + position.coords.heading + '<br />' +
-                                'Speed: ' + position.coords.speed + '<br />' +
-                                'Timestamp: ' + position.timestamp + '<br />';
-            }
-
-            // onError Callback receives a PositionError object
-            //
-            function onError(error) {
-                alert('code: ' + error.code + '\n' +
-                  'message: ' + error.message + '\n');
-            }
-
-
-
-
-            ////////////////////////
-
-            var x = document.getElementById("demo");
-            function onDispayCoordinates() {
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(showPosition, showError);
-                }
-                else { x.innerHTML = "Geolocation is not supported by this browser."; }
-            }
-
-            function showPosition(position) {
-
-                currentPosition = new Parse.GeoPoint({ latitude: position.coords.latitude, longitude: position.coords.longitude });
-
-
-                var latlon = position.coords.latitude + "," + position.coords.longitude;
-
-                var img_url = "http://maps.googleapis.com/maps/api/staticmap?center="
-      + latlon + "&zoom=14&size=400x300&sensor=false";
-                document.getElementById("mapholder").innerHTML = "<img src='" + img_url + "' />";
-
-                document.getElementById("koord").innerHTML = "<span>" + latlon + "</span>";
-
-            }
-
-            function showError(error) {
-                switch (error.code) {
-                    case error.PERMISSION_DENIED:
-                        x.innerHTML = "User denied the request for Geolocation."
-                        break;
-                    case error.POSITION_UNAVAILABLE:
-                        x.innerHTML = "Location information is unavailable."
-                        break;
-                    case error.TIMEOUT:
-                        x.innerHTML = "The request to get user location timed out."
-                        break;
-                    case error.UNKNOWN_ERROR:
-                        x.innerHTML = "An unknown error occurred."
-                        break;
-                }
-            }
-
-            /////////////////////////
-
 
     </script>
 
@@ -385,6 +169,8 @@
                     <img style="width:120px;height:120px;visibility:hidden;display:none;" id="camera_image" src="" />
 
                     <img style="width:120px;height:120px;visibility:hidden;display:none;" id="camera_image_loaded" src="" />
+
+                    <canvas id="canvastest"  width="150" height="150"></canvas>
 
                 </div>
                 <h2>Action</h2>
