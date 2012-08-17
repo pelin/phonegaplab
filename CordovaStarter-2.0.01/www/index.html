@@ -9,6 +9,9 @@
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 	    <script type="text/javascript" src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
         <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.0.15.min.js"></script>
+
+        <script type="text/javascript" charset="utf-8" src="init.js"></script>
+        <script type="text/javascript" charset="utf-8" src="workday.js"></script>
         <script type="text/javascript" charset="utf-8" src="user.js"></script>
         <script type="text/javascript" charset="utf-8" src="navigation.js"></script>
         <script type="text/javascript" charset="utf-8" src="camera.js"></script>
@@ -17,123 +20,7 @@
         <link rel="stylesheet" href="css/styles.css">
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
 
-
-        <script type="text/javascript"  charset="utf-8">
-
-            Parse.initialize("Ea6u4xJI1MOXQPHAnjHA4m4ivTLr8AE0hAwOTHzA", "pwZMfWDpRwn9G8TJf6kIlEuweYywx8zZqp641Ebj");
-
-            var servicekoll = servicekoll || {};
-            
-            var photodata = null;
-            var lastSavedPhotoId = "";
-            var currentWorkday = "";
-
-            function startWorkday() {
-                $.mobile.showPageLoadingMsg("Arbetsdag", "Startar arbetsdag..."); 
-
-                alert("Startar");
-
-                if (isUserLoggedIn()) {
-                    alert("Inloggning finns...");
-                    navigator.geolocation.getCurrentPosition(onContinueStartWorkday, onError);
-                }
-                else {
-                    alert("Du måste logga in först");
-                    self.navigation = "#loginview";
-                }
-
-                $.mobile.hidePageLoadingMsg();
-
-            };
-
-            function onContinueStartWorkday(position) {
-                alert("Position hämtad...");
-
-                var user = Parse.User.current();
-                var Workday = Parse.Object.extend("Workday");
-                var workday = new Workday();
-
-                var now = new Date();
-                var nowstring = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
-
-                workday.set("start", nowstring);
-                workday.set("end", null);
-                workday.set("user", user);
-                workday.set("location", position);
-
-                alert("Sparar...");
-                 
-                workday.save(null, {
-                    success: function (object) {
-                        alert("Arbetsdagen börjar");
-
-                        workday.fetch({
-                            success: function (myObject) {
-                                alert("Klart");
-                                currentWorkday = myObject;
-                                workdayStarted = currentWorkday.createdAt;
-                                $("#btnStartWorkday").hide();
-                                $("#btnEndWorkday").show();
-                            },
-                            error: function (myObject, error) {
-                                alert(error);
-                            }
-                        });
-
-                    },
-                    error: function (model, error) {
-                        alert("Det uppstod ett fel");
-                    }
-                });
-            }
-
-            function endWorkday() {
-
-                alert("Avslutar...");
-                var now = new Date();
-                var nowstring = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
-
-                currentWorkday.set("end", nowstring);
-
-                currentWorkday.save(null, {
-                    success: function (object) {
-                        alert("Arbetsdagen slutar");
-                        $("#btnStartWorkday").show();
-                        $("#btnEndWorkday").hide();
-                    },
-                    error: function (model, error) {
-                        alert("Det uppstod ett fel");
-                    }
-                });
-
-               
-            };
-
-            var deviceReady = false;
-
-            /**
-            * Function called when page has finished loading.
-            */
-            function init() {
-                document.addEventListener("deviceready", function () {
-                    deviceReady = true;
-                    alert("Ramverk laddat. Enhet=" + device.platform + " " + device.version);
-                    console.log("Device=" + device.platform + " " + device.version);
-
-                    initUser();
-
-
-                }, false);
-                window.setTimeout(function () {
-                    if (!deviceReady) {
-                        alert("Fel: Appen kan inte startas.  Vänligen avsluta och försök igen.");
-                    }
-                }, 10000);
-            };
-
-    </script>
-
-
+        
 
 
   </head>
