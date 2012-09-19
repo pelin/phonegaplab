@@ -13,27 +13,14 @@ $(document).bind("mobileinit", function () {
 /**
 * Function called when page has finished loading.
 */
-function init() {
-    app.initialize();
-    //document.addEventListener("deviceready", function () {
-    //    deviceReady = true;
-    //    alert("Ramverk laddat. Enhet=" + device.platform + " " + device.version);
-    //    console.log("Device=" + device.platform + " " + device.version);
-
+function onDeviceReady() {
+    deviceReady = true;
+    alert("Ramverk laddat. Enhet=" + device.platform + " " + device.version);
     initUser();
+};
 
-
-    
-
-    
-
-
-
-
-    //}, false);
-    //window.setTimeout(function () {
-    //    if (!deviceReady) {
-    //        alert("Fel: Appen kan inte startas.  Vänligen avsluta och försök igen.");
-    //    }
-    //}, 20000);
+function init() {
+    alert('start init');
+//    app.initialize();
+    document.addEventListener("deviceready", onDeviceReady, false);
 };

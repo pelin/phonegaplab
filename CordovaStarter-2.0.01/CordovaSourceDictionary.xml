@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- This file is auto-generated, do not edit! -jm -->
 <CordovaSourceDictionary>
+    <FilePath Value="www\app\controller\ActivityListController.js"/>
+    <FilePath Value="www\app\controller\MainController.js"/>
+    <FilePath Value="www\app\model\Activity.js"/>
+    <FilePath Value="www\app\store\Activity.js"/>
+    <FilePath Value="www\app\view\Activity.js"/>
+    <FilePath Value="www\app\view\Start.html"/>
+    <FilePath Value="www\app\view\Start.js"/>
+    <FilePath Value="www\app\view\Statistics.js"/>
+    <FilePath Value="www\app\view\ActivityList.js"/>
+    <FilePath Value="www\app\view\Main.js"/>
     <FilePath Value="www\css\sencha-touch.css"/>
     <FilePath Value="www\init.js"/>
     <FilePath Value="www\app.js"/>

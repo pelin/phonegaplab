@@ -1,5 +1,5 @@
 ﻿// Cordova Initializer
-app.initialize();
+//app.initialize();
 
 // Sencha Touch initializer
 Ext.application({
