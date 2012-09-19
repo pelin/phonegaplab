@@ -7,8 +7,52 @@
     </boolean>
   </SettingsComponent>
   <RecentFiles>
-    <RecentFiles />
-    <RecentEdits />
+    <RecentFiles>
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/f:App.xaml" caret="1157" fromTop="12" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/f:MainPage.xaml" caret="2033" fromTop="10" />
+      <File id="d:Miscellaneous Files/f:config.xml/l:C!?Users?peter.lindstrom?Downloads?phonegap-phonegap-2.0.0-0-g2dbbdab?phonegap-phonegap-2dbbdab?lib?ios?bin?templates?project?www?config.xml" caret="3386" fromTop="38" />
+      <File id="d:Miscellaneous Files/f:cordova-2.0.0.js/l:C!?Users?peter.lindstrom?Downloads?phonegap-phonegap-2.0.0-0-g2dbbdab?phonegap-phonegap-2dbbdab?lib?ios?bin?templates?project?www?cordova-2.0.0.js" caret="166989" fromTop="38" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:cordova-2.0.0-ios.js" caret="297" fromTop="7" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:cordova-2.0.0.js" caret="934" fromTop="20" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:user.js" caret="905" fromTop="42" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:navigation.js" caret="0" fromTop="0" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:camera.js" caret="53" fromTop="3" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:workday.js" caret="184" fromTop="9" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:init.js" caret="223" fromTop="5" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:index.html" caret="774" fromTop="12" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:index.html" caret="1324" fromTop="21" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:index.html" caret="1324" fromTop="36" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:index.html" caret="1324" fromTop="22" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:index.html" caret="1324" fromTop="31" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:index.html" caret="1324" fromTop="28" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:index.html" caret="1324" fromTop="12" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:index.html" caret="1324" fromTop="10" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:index.html" caret="1324" fromTop="17" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:user.js" caret="221" fromTop="6" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:user.js" caret="905" fromTop="12" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:index.html" caret="1324" fromTop="11" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:navigation.js" caret="2523" fromTop="19" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:camera.js" caret="4902" fromTop="19" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:camera.js" caret="2066" fromTop="15" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:index.html" caret="1324" fromTop="22" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:index.html" caret="1324" fromTop="12" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:camera.js" caret="2935" fromTop="10" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:camera.js" caret="1108" fromTop="6" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:camera.js" caret="2014" fromTop="26" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:camera.js" caret="1943" fromTop="26" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:camera.js" caret="1943" fromTop="27" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:camera.js" caret="1941" fromTop="30" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:camera.js" caret="1570" fromTop="13" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:camera.js" caret="1943" fromTop="22" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:index.html" caret="2736" fromTop="22" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:camera.js" caret="53" fromTop="3" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:workday.js" caret="2196" fromTop="19" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:index.html" caret="1340" fromTop="5" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:init.js" caret="967" fromTop="25" />
+      <File id="8180F496-C470-46E6-A93E-172B6E49230B/d:www/f:index.html" caret="784" fromTop="13" />
+    </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>
     <NAntPath value="" />

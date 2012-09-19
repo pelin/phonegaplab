@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+
+    <title>Pablo</title>
+        <script type="text/javascript" charset="utf-8" src="cordova-2.0.0-ios.js"></script>
+        <!--<script type="text/javascript" src="js/sencha-touch-all.js"></script>-->
+        <!--<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>-->
+	    <!--<script type="text/javascript" src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>-->
+        <!--<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.0.15.min.js"></script>-->
+
+        <script type="text/javascript" charset="utf-8" src="js/sencha-touch-all.js"></script>
+
+        <script type="text/javascript" charset="utf-8" src="app.js"></script>
+
+        <!--<script type="text/javascript" charset="utf-8" src="init.js"></script>
+        <script type="text/javascript" charset="utf-8" src="workday.js"></script>
+        <script type="text/javascript" charset="utf-8" src="user.js"></script>
+        <script type="text/javascript" charset="utf-8" src="navigation.js"></script>
+        <script type="text/javascript" charset="utf-8" src="camera.js"></script>-->
+
+        <!--<link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/styles.css">-->
+        <link rel="stylesheet" href="css/sencha-touch.css" type="text/css" />
+        <!--<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />-->
+
+        
+        
+
+  </head>
+    <body  >
+
+
+
+       <!-- <script type="text/javascript">
+            
+        </script>-->
+
+        <!-- <div class="app">
+            <h1>Apache Cordova</h1>
+            <div id="deviceready">
+                <p class="status pending blink">Connecting to Device</p>
+                <p class="status complete blink hide">Device is Ready</p>
+            </div>
+        </div>-->
+<!--
+       
+        <div data-role="page" id="home">
+
+            <div data-role="header"  data-position="fixed">
+                <h3>Pablo 0.2 </h3>
+            </div>
+
+            <div data-role="content">	
+
+                <p><a href="#loginview">Logga in...</a></p>	
+                
+                <div id="main">
+                    <div style="display:none" class="error">
+                      Fel!
+                    </div>
+                    <div style="display:none" class="success">
+                      <p>Sparad!</p>
+                    </div>
+                </div>
+
+                <button id="btnStartWorkday" onclick="startWorkday();">Starta dagen</button> <br/>
+                <span id="workdayStarted"></span> <br/>
+                <button id="btnEndWorkday" style="display:none" onclick="endWorkday();">Avsluta dagen</button> <br/>
+
+                <h1>Camera</h1>
+                <div id="info">
+                    Status: <span id="camera_status"></span><br/>
+                    <img style="width:120px;height:120px;visibility:hidden;display:none;" id="camera_image" src="" />
+
+                    <img style="width:120px;height:120px;visibility:hidden;display:none;" id="camera_image_loaded" src="" />
+
+                    <canvas id="canvastest"  width="150" height="150"></canvas>
+
+                </div>
+                <h2>Action</h2>
+                <a href="#" class="btn large" onclick="getPicture();">Take Picture</a>
+                <a href="#" class="btn large" onclick="getImage();">Select Image from Library</a>
+                <br/>
+                <p>
+               	    <a href="#" class="btn large" id="btnSaveTaskPhoto" onclick="saveTaskPhoto();" >Spara bilden med Parse</a> <br/>
+                </p>
+
+                <p>
+               	    <a href="#" class="btn large" id="btnGetTaskPhoto" onclick="getTaskPhoto();" >Hämta bilden med Parse</a> <br/>
+                </p>
+
+
+                <p>Länk till andra sidan <a href="#bar">bar</a></p>
+                
+
+            </div>
+
+
+            <div data-role="footer" data-position="fixed" >
+		        <h4>Page Footer</h4>
+	        </div>
+
+        </div>
+
+
+
+
+        <div data-role="page" id="bar">
+
+	        <div data-role="header"  data-position="fixed">
+		        <h2>Bar</h2>
+	        </div>
+
+	        <div data-role="content">	
+             
+                <h1>Position</h1>
+                <p id="demo">Klicka här:</p>
+                <button onclick="onDispayCoordinates();">Visa position</button> <br/>
+    
+                <div id="koord"></div>
+                <div id="mapholder"></div>
+
+		        <p><a href="#home">Tillbaka</a></p>	
+	        </div>
+
+	        <div data-role="footer">
+		        <h4>Page Footer</h4>
+	        </div>
+        </div>
+
+        
+        <div data-role="page" id="loginview">
+
+	        <div data-role="header"  data-position="fixed">
+		        <h2>Skapa användare</h2>
+	        </div>
+
+	        <div data-role="content">	
+               
+                <div data-role="fieldcontain" class="ui-hide-label">
+	                <label for="username">Användarnamn:</label>
+	                <input type="text" name="username" id="txtUsername" value="" placeholder="Användarnamn"/>
+                </div>
+                <div data-role="fieldcontain">
+	                <label for="password">Password:</label>
+	                <input type="password" name="password" id="txtPassword" value="" placeholder="Lösenord"/>
+			    </div>
+
+                
+                <a href="#" class="btn large"  id="btnLoginUser" onclick="loginUser();">Logga in</a>
+                <button  id="btnCreateUser" onclick="createUser();">Skapa ny användare</button>
+                <a href="#" class="btn large"  id="btnLogout" style="display:none;">Logga ut</a>
+
+		        <p><a href="#home">Tillbaka</a></p>	
+	        </div>
+
+	        <div data-role="footer"  data-position="fixed">
+		        <h4>Page Footer</h4>
+	        </div>
+        </div>
+-->
+
+
+    
+
+
+  </body>
+</html>

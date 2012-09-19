@@ -1,23 +1,38 @@
-﻿<xapCache source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\Bin\Debug\CordovaStarter_2._0._01.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="2012-08-17 08:36:20">
+﻿<xapCache source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\Bin\Debug\CordovaStarter_2._0._01.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="2012-09-18 10:38:56">
   <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\Bin\Debug\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="2012-08-15 16:01:16" />
   <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\Background.png" archivePath="Background.png" lastWriteTime="2012-08-15 15:59:32" />
   <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\ApplicationIcon.png" archivePath="ApplicationIcon.png" lastWriteTime="2012-08-15 15:59:32" />
-  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\obj\Debug\CordovaStarter-2.0.01.dll" archivePath="CordovaStarter-2.0.01.dll" lastWriteTime="2012-08-16 13:43:30" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\obj\Debug\CordovaStarter-2.0.01.dll" archivePath="CordovaStarter-2.0.01.dll" lastWriteTime="2012-09-18 10:38:55" />
   <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\CordovaLib\WP7CordovaClassLib.dll" archivePath="WP7CordovaClassLib.dll" lastWriteTime="2012-08-15 15:59:32" />
-  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\CordovaSourceDictionary.xml" archivePath="CordovaSourceDictionary.xml" lastWriteTime="2012-08-17 08:36:19" />
-  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\www\cordova-2.0.0-ios.js" archivePath="www\cordova-2.0.0-ios.js" lastWriteTime="2012-08-16 09:46:45" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\www\css\sencha-touch.css" archivePath="www\css\sencha-touch.css" lastWriteTime="2012-09-18 10:34:42" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\www\init.js" archivePath="www\init.js" lastWriteTime="2012-09-18 08:46:19" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\www\app.js" archivePath="www\app.js" lastWriteTime="2012-09-18 10:38:53" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\CordovaSourceDictionary.xml" archivePath="CordovaSourceDictionary.xml" lastWriteTime="2012-09-18 10:38:55" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\www\camera.js" archivePath="www\camera.js" lastWriteTime="2012-08-17 16:15:08" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\www\cordova-2.0.0-ios.js" archivePath="www\cordova-2.0.0-ios.js" lastWriteTime="2012-09-18 09:15:59" />
   <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\www\css\reset.css" archivePath="www\css\reset.css" lastWriteTime="2012-08-16 09:54:23" />
   <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\www\css\styles.css" archivePath="www\css\styles.css" lastWriteTime="2012-08-16 09:54:23" />
-  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\www\js\index.js" archivePath="www\js\index.js" lastWriteTime="2012-08-15 15:59:32" />
-  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\www\user.js" archivePath="www\user.js" lastWriteTime="2012-08-16 15:44:29" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\www\js\index.js" archivePath="www\js\index.js" lastWriteTime="2012-09-18 09:16:23" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\www\js\sencha-touch-all.js" archivePath="www\js\sencha-touch-all.js" lastWriteTime="2012-09-18 10:34:45" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\www\navigation.js" archivePath="www\navigation.js" lastWriteTime="2012-08-17 15:53:21" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\www\user.js" archivePath="www\user.js" lastWriteTime="2012-08-17 09:08:02" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\www\workday.js" archivePath="www\workday.js" lastWriteTime="2012-08-17 16:16:19" />
   <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\CordovaLib\WP7CordovaClassLib.dll" archivePath="CordovaLib\WP7CordovaClassLib.dll" lastWriteTime="2012-08-15 15:59:32" />
   <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\www\cordova-2.0.0.js" archivePath="www\cordova-2.0.0.js" lastWriteTime="2012-08-16 10:16:47" />
   <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\www\css\index.css" archivePath="www\css\index.css" lastWriteTime="2012-08-15 15:59:32" />
   <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\www\img\cordova.png" archivePath="www\img\cordova.png" lastWriteTime="2012-08-15 15:59:32" />
-  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\www\index.html" archivePath="www\index.html" lastWriteTime="2012-08-17 08:36:10" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\www\index.html" archivePath="www\index.html" lastWriteTime="2012-09-18 10:38:30" />
   <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\SplashScreenImage.jpg" archivePath="SplashScreenImage.jpg" lastWriteTime="2012-08-15 15:59:32" />
   <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="2012-08-15 16:01:16" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\Bin\Debug\www\init.js" archivePath="www\init.js" lastWriteTime="2012-09-18 08:46:19" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\Bin\Debug\www\camera.js" archivePath="www\camera.js" lastWriteTime="2012-08-17 16:15:08" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\Bin\Debug\www\cordova-2.0.0-ios.js" archivePath="www\cordova-2.0.0-ios.js" lastWriteTime="2012-09-18 09:15:59" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\Bin\Debug\www\js\index.js" archivePath="www\js\index.js" lastWriteTime="2012-09-18 09:16:23" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\Bin\Debug\www\navigation.js" archivePath="www\navigation.js" lastWriteTime="2012-08-17 15:53:21" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\Bin\Debug\www\user.js" archivePath="www\user.js" lastWriteTime="2012-08-17 09:08:02" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\Bin\Debug\www\workday.js" archivePath="www\workday.js" lastWriteTime="2012-08-17 16:16:19" />
   <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\Bin\Debug\www\cordova-2.0.0.js" archivePath="www\cordova-2.0.0.js" lastWriteTime="2012-08-16 10:16:47" />
+  <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\Bin\Debug\www\index.html" archivePath="www\index.html" lastWriteTime="2012-09-18 10:38:30" />
   <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\Bin\Debug\ApplicationIcon.png" archivePath="ApplicationIcon.png" lastWriteTime="2012-08-15 15:59:32" />
   <file source="C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\Bin\Debug\Background.png" archivePath="Background.png" lastWriteTime="2012-08-15 15:59:32" />
 </xapCache>

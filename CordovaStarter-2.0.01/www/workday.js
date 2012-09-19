@@ -2,13 +2,41 @@
 
 var currentWorkday = "";
 
+function getActivities(){
+
+    //alert('getactivities');
+
+        var Activity = Parse.Object.extend("Activity");
+        var query = new Parse.Query(Activity);
+
+        query.find({
+            success: function (results) {
+                //alert('success');
+                for (var i = 0; i < results.length; i++) {
+
+                    $('#uppdrag').append('<option value="' + results[i].get("objectId") +  '">' + results[i].get("Description") + '</option>');
+
+                }
+            },
+
+            error: function (error) {
+                // error is an instance of Parse.Error.
+            }
+        });
+
+}
+
 function startWorkday() {
     $.mobile.showPageLoadingMsg("Arbetsdag", "Startar arbetsdag...");
 
-    alert("Startar");
+    //alert("Startar");
+
+    alert($('#uppdrag').val);
+
+    
 
     if (isUserLoggedIn()) {
-        alert("Inloggning finns...");
+        //alert("Inloggning finns...");
         navigator.geolocation.getCurrentPosition(onContinueStartWorkday, onError);
     }
     else {
@@ -21,7 +49,7 @@ function startWorkday() {
 };
 
 function onContinueStartWorkday(position) {
-    alert("Position hämtad...");
+    //alert("Position hämtad...");
 
     var user = Parse.User.current();
     var Workday = Parse.Object.extend("Workday");
@@ -35,19 +63,27 @@ function onContinueStartWorkday(position) {
     workday.set("user", user);
     workday.set("location", position);
 
-    alert("Sparar...");
+    //alert("Sparar...");
 
     workday.save(null, {
         success: function (object) {
-            alert("Arbetsdagen börjar");
+            //alert("Arbetsdagen börjar");
 
             workday.fetch({
                 success: function (myObject) {
-                    alert("Klart");
+                    //alert("Klart");
                     currentWorkday = myObject;
                     workdayStarted = currentWorkday.createdAt;
                     $("#btnStartWorkday").hide();
                     $("#btnEndWorkday").show();
+
+                    $('#workdayStarted').text('Startad');
+                    
+
+                    var user = Parse.User.current();
+                    $('#activitylist').append('<li>' + MapDay(now.getDay()) + ' ' + now.getDate() + ' ' + MapMonth(now.getMonth()) + ' : ' + user.get("username") + ' startar ' + nowstring + ' vid ' + position.coords.latitude + ', ' + position.coords.longitude + '</li>');
+                    $('#activitylist').listview('refresh');
+
                 },
                 error: function (myObject, error) {
                     alert(error);
@@ -59,6 +95,15 @@ function onContinueStartWorkday(position) {
             alert("Det uppstod ett fel");
         }
     });
+}
+
+function MapDay(daynumber) {
+    var dayNames = new Array("Måndag","Tisdag","Onsdag","Torsdag","Fredag","Lördag","Söndag");
+    return dayNames[daynumber];
+}
+function MapMonth(monthnumber) {
+    var monthNames = new Array("jan","feb","mar","apr","maj","jun","jul","aug","sept","okt","nov","dec");
+    return monthNames[monthnumber];
 }
 
 function endWorkday() {

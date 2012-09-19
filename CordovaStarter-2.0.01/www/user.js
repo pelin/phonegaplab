@@ -3,8 +3,8 @@ function initUser() {
 
     if (isUserLoggedIn()) {
         var user = Parse.User.current();
-        document.getElementById('txtUsername').val() = user.username;
-        document.getElementById('txtPassword').val() = user.password;
+        //document.getElementById('txtUsername').val() = user.username;
+        //document.getElementById('txtPassword').val() = user.password;
         //self.location = "#home";
     }
     else {
@@ -54,6 +54,28 @@ function loginUser() {
     });
 
     return status;
+};
+
+function loginUserSelected(option) {
+
+    alert(option.value);
+    Parse.User.logIn(option.value, option.value, {
+        success: function (user) {
+            alert("Inloggad som " + option.value);
+            status = "Inloggad som " + option.value;
+
+
+
+            $('.loggedinuser').text('Inloggad som ' + option.value);
+
+        },
+        error: function (user, error) {
+            alert("Felaktig inloggning (" + error.message + ")");
+        }
+    });
+
+    alert('done');
+
 };
 
 function createUser() {
