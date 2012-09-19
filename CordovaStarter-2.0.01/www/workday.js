@@ -29,14 +29,14 @@ function getActivities(){
 function startWorkday() {
     $.mobile.showPageLoadingMsg("Arbetsdag", "Startar arbetsdag...");
 
-    //alert("Startar");
+    alert("Startar");
 
     alert($('#uppdrag').val);
 
     
 
     if (isUserLoggedIn()) {
-        //alert("Inloggning finns...");
+        alert("Inloggning finns...");
         navigator.geolocation.getCurrentPosition(onContinueStartWorkday, onError);
     }
     else {
@@ -49,7 +49,7 @@ function startWorkday() {
 };
 
 function onContinueStartWorkday(position) {
-    //alert("Position hämtad...");
+    alert("Position hämtad...");
 
     var user = Parse.User.current();
     var Workday = Parse.Object.extend("Workday");
@@ -63,15 +63,15 @@ function onContinueStartWorkday(position) {
     workday.set("user", user);
     workday.set("location", position);
 
-    //alert("Sparar...");
+    alert("Sparar...");
 
     workday.save(null, {
         success: function (object) {
-            //alert("Arbetsdagen börjar");
+            alert("Arbetsdagen börjar");
 
             workday.fetch({
                 success: function (myObject) {
-                    //alert("Klart");
+                    alert("Klart");
                     currentWorkday = myObject;
                     workdayStarted = currentWorkday.createdAt;
                     $("#btnStartWorkday").hide();
