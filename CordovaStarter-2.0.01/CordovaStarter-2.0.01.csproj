@@ -96,9 +96,7 @@
     <Content Include="www\app\view\Main.js" />
     <Content Include="www\css\sencha-touch.css" />
     <Resource Include="www\img\bergvarme.png" />
-    <Content Include="www\init.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="www\init.js" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -116,37 +114,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CordovaSourceDictionary.xml" />
-    <Content Include="www\camera.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="www\cordova-2.0.0-ios.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="www\camera.js" />
+    <Content Include="www\cordova-2.0.0-ios.js" />
     <Content Include="www\css\reset.css" />
     <Content Include="www\css\styles.css" />
-    <Content Include="www\js\index.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="www\js\index.js" />
     <Content Include="www\js\sencha-touch-all.js" />
-    <Content Include="www\navigation.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="www\user.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="www\workday.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="www\navigation.js" />
+    <Content Include="www\user.js" />
+    <Content Include="www\workday.js" />
     <None Include="BuildManifestProcessor.js" />
     <Content Include="CordovaLib\WP7CordovaClassLib.dll" />
-    <Content Include="www\cordova-2.0.0.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="www\cordova-2.0.0.js" />
     <Content Include="www\css\index.css" />
     <Content Include="www\img\cordova.png" />
     <Content Include="www\index.html">
       <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="cordova\debug.bat" />
     <None Include="cordova\emulate.bat" />
