@@ -8,8 +8,26 @@
         <script type="text/javascript" charset="utf-8" src="cordova-2.0.0.js"></script>
         <!--<script type="text/javascript" src="js/sencha-touch-all.js"></script>-->
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="user.js"></script>
+      <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.0.15.min.js"></script>
+        <script type="text/javascript" charset="utf-8">
+
+            Parse.initialize("Ea6u4xJI1MOXQPHAnjHA4m4ivTLr8AE0hAwOTHzA", "pwZMfWDpRwn9G8TJf6kIlEuweYywx8zZqp641Ebj");
+
+            $(document).bind("mobileinit", function () {
+                $.mobile.defaultPageTransition = "slide";
+                //alert('mobileinit');
+                
+            });
+
+            $(document).ready(function () {
+                //alert('docready');
+                initUser();
+            });
+
+        </script>
 	    <script type="text/javascript" src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
-        <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.0.15.min.js"></script>
+        
 
       <!--<script type="text/javascript" charset="utf-8" src="js/jquery.ui.map.full.min.js"></script>-->
 
@@ -23,7 +41,7 @@
 
         <script type="text/javascript" charset="utf-8" src="init.js"></script>
         
-        <script type="text/javascript" charset="utf-8" src="user.js"></script>
+        
         <script type="text/javascript" charset="utf-8" src="navigation.js"></script>
         <script type="text/javascript" charset="utf-8" src="camera.js"></script>
 
@@ -35,11 +53,6 @@
       <link rel="stylesheet" href="css/pablo.css"/>
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
 
-        <script type="text/javascript" charset="utf-8">
-            //Ext.Loader.setConfig({ enabled: true });
-            Parse.initialize("Ea6u4xJI1MOXQPHAnjHA4m4ivTLr8AE0hAwOTHzA", "pwZMfWDpRwn9G8TJf6kIlEuweYywx8zZqp641Ebj");
-
-        </script>
       
   
 
@@ -52,16 +65,6 @@
             getActivities();
 
 
-            //var LocationCenter = null;
-            //var map = null;
-            //var approxCircle = null;
-            //var pinCircle = null;
-            //var marker = null;
-
-
-
-
-
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function (position) {
                     mapinitialize(position.coords.latitude, position.coords.longitude, "map_canvas");
@@ -69,41 +72,6 @@
             } else {
                 mapinitialize(52.636161, -1.133065, "map_canvas");
             };
-
-
-            //var map, mapOptions;
-            //function mapinitialize() {
-            //    mapOptions = {
-            //        center: new google.maps.LatLng(-34.397, 150.644),
-            //        zoom: 8,
-            //        mapTypeId: google.maps.MapTypeId.ROADMAP
-            //    };
-            //    var mapelement = document.getElementById("map_canvas");
-            //    map = new google.maps.Map(mapelement, mapOptions);
-            //}
-
-            //$('#home').live("pagecreate", function () {
-
-            //    alert('create');
-
-            //    mapinitialize();
-
-            //});
-
-            //$('#home').live('pageshow',function(){
-            //    google.maps.event.trigger(map, 'resize');
-            //    map.setOptions(mapOptions); 
-            //});
-
-
-
-            //$(document).bind('pageinit', function () {
-
-            //    alert('pageinit');
-
-            //    mapinitialize();
-
-            //});
 
         </script>
 
@@ -115,7 +83,7 @@
                <div data-role="navbar" data-iconpos="top">
 		            <ul>
 			            <li><a  data-icon="home" href="#home">Start</a></li>
-			            <li><a data-icon="star" href="#bar">Uppdrag</a></li>
+			            <li><a data-icon="star" href="#activitylist">Uppdrag</a></li>
 			            <li><a data-icon="grid" href="#bar">Uppföljning</a></li>
                         <li><a  data-icon="gear" href="#loginview">Byt användare</a></li>
 			            <li style="text-align: right;"><small class="loggedinuser"></small></li>
@@ -136,7 +104,8 @@
 
                 <div class="content-secondary">
                     
-                    
+                    <h2 id="currentuser"></h2>
+
                     <label for="uppdrag" class="select">Välj uppdrag:</label>
 				    <select name="uppdrag" id="uppdrag" data-theme="e">
 					    <!-- getActivities() -->
@@ -208,13 +177,13 @@
         </div>
 
         
-        <div data-role="page" data-title="Andra sidan" id="bar" data-add-back-btn="true" data-back-btn-text="Tillbaka" data-back-btn-theme="b" data-theme="b">
+        <div data-role="page" data-title="Uppdrag" id="activitylist" data-add-back-btn="true" data-back-btn-text="Tillbaka" data-back-btn-theme="b" data-theme="b">
 
 	         <div data-role="header"  data-id="fixedheader"  data-position="fixed"  data-theme="e">
                <div data-role="navbar">
 		            <ul>
 			            <li><a  data-icon="home" href="#home">Start</a></li>
-			            <li><a data-icon="star" href="#bar">Uppdrag</a></li>
+			            <li><a data-icon="star" href="#activitylist">Uppdrag</a></li>
 			            <li><a data-icon="grid" href="#bar">Uppföljning</a></li>
                         <li><a  data-icon="gear" href="#loginview">Byt användare</a></li>
 			            <li style="text-align: right;"><small class="loggedinuser"></small></li>
@@ -224,7 +193,15 @@
 
 	        <div data-role="content">	
              
-                <h1>Position</h1>
+
+                 <h2>Uppdrag</h2>
+			
+			    <ul id="projectlist" data-role="listview" data-filter="true">
+                    <li data-role="list-divider" >Uppdrag</li>
+				    
+			    </ul>
+
+                <!--<h1>Position</h1>
                 <p id="demo">Klicka här:</p>
                 <button onclick="onDispayCoordinates();">Visa position</button> <br/>
     
@@ -235,10 +212,10 @@
                 <div id="koord"></div>
                 <div id="mapholder"></div>
 
-		        <p><a href="#home">Tillbaka</a></p>	
+		        <p><a href="#home">Tillbaka</a></p>-->	
 	        </div>
 
-	        <div data-role="footer">
+	        <div data-role="footer" data-position="fixed">
 		        <h4>Page Footer</h4>
 	        </div>
         </div>
@@ -292,7 +269,35 @@
 	        </div>
         </div>
 
+        
+        <div data-role="page" id="activity" data-theme="b">
 
+	         <div data-role="header" data-position="fixed"  data-theme="e" >
+                 <a data-rel="back" data-icon="arrow-l">Tillbaka</a>
+                 <h1>Uppdraget</h1> 
+               <!--<div data-role="navbar">
+		            <ul>
+			            <li><a  data-icon="home" href="#home">Start</a></li>
+			            <li><a data-icon="star" href="#activitylist">Uppdrag</a></li>
+			            <li><a data-icon="grid" href="#bar">Uppföljning</a></li>
+                        <li><a  data-icon="gear" href="#loginview">Byt användare</a></li>
+			            <li style="text-align: right;"><small class="loggedinuser"></small></li>
+		            </ul>
+	            </div>-->
+            </div>
+
+	        <div data-role="content">	
+                <h1>Uppdraget</h1>
+                <div data-role="fieldcontain">
+                    sfdsf
+                </div>
+
+	        </div>
+            
+	        <div data-role="footer" data-position="fixed">
+		        <h4>Page Footer</h4>
+	        </div>
+        </div>
 
     
 

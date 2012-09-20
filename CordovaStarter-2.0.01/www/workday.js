@@ -3,27 +3,28 @@
 var currentWorkday = "";
 
 function getActivities(){
-
     //alert('getactivities');
-
         var Activity = Parse.Object.extend("Activity");
         var query = new Parse.Query(Activity);
-
         query.find({
             success: function (results) {
                 //alert('success');
                 for (var i = 0; i < results.length; i++) {
+                    if (i == 0)
+                        $('#uppdrag').append('<option selected="selected" value="' + results[i].get("objectId") + '">' + results[i].get("Description") + '</option>');
+                    else
+                        $('#uppdrag').append('<option value="' + results[i].get("objectId") + '">' + results[i].get("Description") + '</option>');
 
-                    $('#uppdrag').append('<option value="' + results[i].get("objectId") +  '">' + results[i].get("Description") + '</option>');
 
+                    $('#projectlist').append('<li><a href="#activity" data-icon="arrow-r">' + results[i].get("Description") + '</a></li>');
+                    
                 }
+                //$('#projectlist').listview('refresh');
             },
-
             error: function (error) {
                 // error is an instance of Parse.Error.
             }
         });
-
 }
 
 function startWorkday() {

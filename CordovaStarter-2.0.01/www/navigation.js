@@ -21,12 +21,12 @@
 //                                'Timestamp: ' + position.timestamp + '<br />';
 //}
 
-//// onError Callback receives a PositionError object
-////
-//function onError(error) {
-//    alert('code: ' + error.code + '\n' +
-//                  'message: ' + error.message + '\n');
-//}
+// onError Callback receives a PositionError object
+//
+function onError(error) {
+    alert('code: ' + error.code + '\n' +
+                  'message: ' + error.message + '\n');
+}
 
 //function mapinitialize() {
 //   

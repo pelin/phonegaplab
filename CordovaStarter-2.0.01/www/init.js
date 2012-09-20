@@ -4,11 +4,11 @@
             
 var deviceReady = false;
 
-$(document).bind("mobileinit", function () {
-    $.mobile.defaultPageTransition = "slide";
+//$(document).bind("mobileinit", function () {
+//    $.mobile.defaultPageTransition = "slide";
 
 
-});
+//});
 
 /**
 * Function called when page has finished loading.
@@ -16,11 +16,15 @@ $(document).bind("mobileinit", function () {
 function onDeviceReady() {
     deviceReady = true;
     alert("Ramverk laddat. Enhet=" + device.platform + " " + device.version);
-    initUser();
+    
 };
 
 function init() {
     alert('start init');
 //    app.initialize();
     document.addEventListener("deviceready", onDeviceReady, false);
+
+
+   // initUser();
+
 };

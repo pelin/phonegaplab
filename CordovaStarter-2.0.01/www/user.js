@@ -1,11 +1,25 @@
-﻿
-function initUser() {
+﻿function initUser() {
 
     if (isUserLoggedIn()) {
         var user = Parse.User.current();
         //document.getElementById('txtUsername').val() = user.username;
         //document.getElementById('txtPassword').val() = user.password;
         //self.location = "#home";
+
+        var currentUsername = user.get("username");
+
+        alert('Redan inloggad ' + currentUsername);
+
+        $('.loggedinuser').text('Inloggad som ' + currentUsername);
+        $('#currentuser').text(currentUsername);
+        //$('#currentuser').html(currentUsername);
+
+        alert($('#currentuser').text())
+
+        $('#user-select option[value='+currentUsername+']').attr('selected', 'selected');
+        //$('#user-select').selectmenu('refresh', true);
+
+
     }
     else {
         //self.location = "#loginview";
@@ -34,31 +48,31 @@ function getCurrentUser() {
     };
 };
 
-function loginUser() {
+//function loginUser() {
 
-    var username = $('#txtUsername').val();
-    var password = $('#txtPassword').val();
+//    var username = $('#txtUsername').val();
+//    var password = $('#txtPassword').val();
 
-    alert(username);
-    alert(password);
+//    alert(username);
+//    alert(password);
 
-    var status = "";
+//    var status = "";
 
-    Parse.User.logIn(username, password, {
-        success: function (user) {
-            status = "Inloggad som " + username;
-        },
-        error: function (user, error) {
-            alert("Felaktig inloggning (" + error.message + ")");
-        }
-    });
+//    Parse.User.logIn(username, password, {
+//        success: function (user) {
+//            status = "Inloggad som " + username;
+//        },
+//        error: function (user, error) {
+//            alert("Felaktig inloggning (" + error.message + ")");
+//        }
+//    });
 
-    return status;
-};
+//    return status;
+//};
 
 function loginUserSelected(option) {
 
-    alert(option.value);
+    alert('loggar in ' + option.value);
     Parse.User.logIn(option.value, option.value, {
         success: function (user) {
             alert("Inloggad som " + option.value);
@@ -74,7 +88,7 @@ function loginUserSelected(option) {
         }
     });
 
-    alert('done');
+    alert('inloggning done');
 
 };
 
