@@ -17,10 +17,13 @@ function onDeviceReady() {
     deviceReady = true;
     alert("Ramverk laddat. Enhet=" + device.platform + " " + device.version);
     
+
+
+
 };
 
 function init() {
-    alert('start init');
+    //alert('start init');
 //    app.initialize();
     document.addEventListener("deviceready", onDeviceReady, false);
 

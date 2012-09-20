@@ -1,8 +1,8 @@
 ﻿<!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
-    <!--<meta name="viewport" content="initial-scale=1, maximum-scale=1">-->
+    <!--<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />-->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
 
     <title>Pablo</title>
@@ -10,11 +10,11 @@
         <!--<script type="text/javascript" src="js/sencha-touch-all.js"></script>-->
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
         <script type="text/javascript" charset="utf-8" src="user.js"></script>
-      <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.0.15.min.js"></script>
+        <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.0.15.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="init.js"></script>
         <script type="text/javascript" charset="utf-8">
 
-            Parse.initialize("Ea6u4xJI1MOXQPHAnjHA4m4ivTLr8AE0hAwOTHzA", "pwZMfWDpRwn9G8TJf6kIlEuweYywx8zZqp641Ebj");
-
+            
             $(document).bind("mobileinit", function () {
                 $.mobile.defaultPageTransition = "slide";
                 //alert('mobileinit');
@@ -22,14 +22,16 @@
             });
 
             $(document).bind('pageinit', function(){
-                
                 initUser();
+                $('#workdayactivities').select('refresh', true);  
+                $('#projectlist').select('refresh', true);  
             })
 
-            //$(document).ready(function () {
-            //    //alert('docready');
-            //    
-            //});
+            $(document).ready(function () {
+                //alert('docready');
+                //$('#projectlist').selectmenu('refresh', true);
+                //$('#workdayactivities').selectmenu('refresh', true);    
+            });
 
             /*! A fix for the iOS orientationchange zoom bug. Script by @scottjehl, rebound by @wilto.MIT License.*/
             //(function(m){if(!(/iPhone|iPad|iPod/.test(navigator.platform)&&navigator.userAgent.indexOf("AppleWebKit")>-1)){return}var l=m.document;if(!l.querySelector){return}var n=l.querySelector("meta[name=viewport]"),a=n&&n.getAttribute("content"),k=a+",maximum-scale=1",d=a+",maximum-scale=10",g=true,j,i,h,c;if(!n){return}function f(){n.setAttribute("content",d);g=true}function b(){n.setAttribute("content",k);g=false}function e(o){c=o.accelerationIncludingGravity;j=Math.abs(c.x);i=Math.abs(c.y);h=Math.abs(c.z);if(!m.orientation&&(j>7||((h>6&&i<8||h<8&&i>6)&&j>5))){if(g){b()}}else{if(!g){f()}}}m.addEventListener("orientationchange",f,false);m.addEventListener("devicemotion",e,false)})(this);
@@ -42,16 +44,16 @@
       <!--<script type="text/javascript" charset="utf-8" src="js/jquery.ui.map.full.min.js"></script>-->
 
       
-      <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
 
 
         <!--<script type="text/javascript" charset="utf-8" src="js/sencha-touch-all.js"></script>-->
         <script type="text/javascript" charset="utf-8" src="js/index.js"></script>
         <!--<script type="text/javascript" charset="utf-8" src="app.js"></script>-->
 
-        <script type="text/javascript" charset="utf-8" src="init.js"></script>
         
         
+        <script type="text/javascript" charset="utf-8" src="project.js"></script>
         <script type="text/javascript" charset="utf-8" src="navigation.js"></script>
         <script type="text/javascript" charset="utf-8" src="camera.js"></script>
 
@@ -60,7 +62,7 @@
         <!--<link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/styles.css">-->
         <!--<link rel="stylesheet" href="css/sencha-touch.css" type="text/css" />-->
-      <link rel="stylesheet" href="css/pablo.css"/>
+        <link rel="stylesheet" href="css/pablo.css"/>
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
 
       
@@ -72,7 +74,7 @@
         
 
         <script type="text/javascript">
-            getActivities();
+            getProjects();
 
 
             if (navigator.geolocation) {
@@ -86,43 +88,35 @@
         </script>
 
        
-        <div data-role="page" id="home" data-theme="b" data-title="Start" class="page-map">
 
-            
-            <div data-role="header"  data-id="fixedheader"  data-position="fixed"  data-theme="e">
+        <!-- START -->
+        <div data-role="page" id="home" data-theme="b" data-title="Start" class="page-map">
+            <div data-role="header"  data-id="fixedheader"  data-position="fixed"  data-theme="b">
                <div data-role="navbar" data-iconpos="top">
 		            <ul>
 			            <li><a  data-icon="home" href="#home">Start</a></li>
 			            <li><a data-icon="star" href="#activitylist">Uppdrag</a></li>
-			            <li><a data-icon="grid" href="#bar">Uppföljning</a></li>
+			            <li><a data-icon="grid" href="#statistics">Uppföljning</a></li>
                         <li><a  data-icon="gear" href="#loginview">Byt användare</a></li>
-			            <li style="text-align: right;"><small class="loggedinuser"></small></li>
+			            <li style="text-align: right;"> <img src="img/bergvarme.png" height="50px" width="250px" alt="logo" /></li>
 		            </ul>
 	            </div>
             </div>
-
-            <div data-role="content">	
-
+            <div data-role="content">
+                <h1>Start</h1> 
                 <div class="content-primary">
-                    <img src="img/bergvarme.png" alt="logo" />
-                
-                    <div data-role="content" style="padding: 15px">
-                        <div id="map_canvas" style="height:300px; width:300px;"></div>
-                    </div>
 
-                </div>
-
-                <div class="content-secondary">
                     
-                    <h2 id="currentuser"></h2>
 
-                    <label for="uppdrag" class="select">Välj uppdrag:</label>
-				    <select name="uppdrag" id="uppdrag" data-theme="e">
-					    <!-- getActivities() -->
+                    <h2>Tidsrapportera genom att välja uppdrag och peka på starta eller avsluta</h2>
+                    <p>
+                    <label for="workdayactivities" class="select">Välj uppdrag:</label>
+				    <select name="workdayactivities" id="workdayactivities" data-theme="b" data-role="select">
+                        <option>Välj ett...</option>
+					    <!-- getProjects() -->
 				    </select>
-
+                    </p>
                     <!--<p><a href="#loginview">Logga in...</a></p>-->	
-                
                     <div id="main">
                         <div style="display:none" class="error">
                           Fel!
@@ -131,23 +125,20 @@
                           <p>Sparad!</p>
                         </div>
                     </div>
-
-                    <button id="btnStartWorkday" onclick="startWorkday();">Starta dagen</button> <br/>
-                    <span id="workdayStarted"></span>
-                    <button id="btnEndWorkday" style="display:none;" onclick="endWorkday();">Avsluta dagen</button> <br/>
-
+                    <p>
+                        <label >Starta och avsluta dagen:</label>
+                   
+                        <button id="btnStartWorkday" onclick="startWorkday();">Starta dagen</button> <br/>
+                        <span id="workdayStarted"></span>
+                        <button id="btnEndWorkday" style="display:none;" onclick="endWorkday();">Avsluta dagen</button> <br/>
+                    </p>
                     <hr/>
 
                     <h2>Aktiviteter</h2>
 			
 			        <ul id="activitylist" data-role="listview" data-filter="true">
                         <li data-role="list-divider">Aktiviteter</li>
-				        <li>Mån 13 sep: Pelle startar 08:15</li>
-				        <li>Mån 13 sep: Pelle startar 08:15</li>
-                        <li>Mån 13 sep: Pelle startar 08:15</li>
-                        <li>Mån 13 sep: Pelle startar 08:15</li>
-                        <li>Mån 13 sep: Pelle startar 08:15</li>
-                        <li>Mån 13 sep: Pelle startar 08:15</li>
+				       
 			        </ul>
 
                     <!--<h1>Camera</h1>
@@ -171,74 +162,116 @@
                     <p>
                	        <a href="#" class="btn large" id="btnGetTaskPhoto" onclick="getTaskPhoto();" >Hämta bilden med Parse</a> <br/>
                     </p>
-
-
                     <p>Länk till andra sidan <a href="#bar">bar</a></p>-->
-                
+                </div>
+
+                <div class="content-secondary">
+                    
+                    
+                    <div data-role="content" style="padding: 15px">
+                        <div id="map_canvas" style="height:300px; width:300px;"></div>
+                    </div>
+
                 </div>
 
             </div>
-
-
-            <div data-role="footer" data-position="fixed" data-theme="b">
-		        <h4>Page Footer</h4>
+            <div data-role="footer" data-position="fixed" data-theme="b" data-id="fixedfooter">
+                
+		        <h4 class="loggedinuser">Du måste välja användare: Byt användare</h4>
+                
 	        </div>
 
         </div>
 
-        
-        <div data-role="page" data-title="Uppdrag" id="activitylist" data-add-back-btn="true" data-back-btn-text="Tillbaka" data-back-btn-theme="b" data-theme="b">
 
-	         <div data-role="header"  data-id="fixedheader"  data-position="fixed"  data-theme="e">
+
+
+
+
+        <!-- UPPDRAG -->
+        <div data-role="page" data-title="Uppdrag" id="activitylist" data-add-back-btn="true" data-back-btn-text="Tillbaka" data-back-btn-theme="b" data-theme="b">
+	         <div data-role="header"  data-id="fixedheader"  data-position="fixed"  data-theme="b">
                <div data-role="navbar">
 		            <ul>
 			            <li><a  data-icon="home" href="#home">Start</a></li>
 			            <li><a data-icon="star" href="#activitylist">Uppdrag</a></li>
-			            <li><a data-icon="grid" href="#bar">Uppföljning</a></li>
+			            <li><a data-icon="grid" href="#statistics">Uppföljning</a></li>
                         <li><a  data-icon="gear" href="#loginview">Byt användare</a></li>
 			            <li style="text-align: right;"><small class="loggedinuser"></small></li>
 		            </ul>
 	            </div>
             </div>
-
 	        <div data-role="content">	
-             
-
-                 <h2>Uppdrag</h2>
-			
+                <h1>Uppdrag</h1>
 			    <ul id="projectlist" data-role="listview" data-filter="true">
                     <li data-role="list-divider" >Uppdrag</li>
-				    
+				    <!-- getProjects() -->
 			    </ul>
-
                 <!--<h1>Position</h1>
                 <p id="demo">Klicka här:</p>
                 <button onclick="onDispayCoordinates();">Visa position</button> <br/>
-    
-                
-                
-               
-
                 <div id="koord"></div>
                 <div id="mapholder"></div>
-
 		        <p><a href="#home">Tillbaka</a></p>-->	
 	        </div>
 
-	        <div data-role="footer" data-position="fixed">
-		        <h4>Page Footer</h4>
+	        <div data-role="footer" data-position="fixed" data-theme="b" data-id="fixedfooter">
+		        <h4 class="loggedinuser">Du måste välja användare: Byt användare</h4>
 	        </div>
         </div>
 
         
+
+        <!-- UPPDRAG - DETALJ -->
+        <div data-role="page" id="activity" data-theme="b">
+
+	         <div data-role="header" data-position="fixed"  data-theme="b" >
+                 <a data-rel="back" data-icon="arrow-l">Tillbaka</a>
+                 <h1 id="projectname">Uppdraget</h1> 
+            </div>
+
+            <script>
+                $('#activity').live('pageshow', function () {
+                    //alert(getProjectIdFromHash());
+                });
+
+            </script>
+
+	        <div data-role="content">	
+                <h1>Uppdraget</h1>
+               
+
+
+                <div data-role="fieldcontain">
+			        <label for="textarea">Beskrivning:</label>
+			        <textarea id="projectcomments" cols="40" rows="20" name="textarea" id="textarea"></textarea>
+			    </div>
+
+                <div data-role="fieldcontain">
+				    <label for="slider">Tidsuppskattning:</label>
+			 	    <input id="projectestimatedtime"  type="range" name="slider" id="slider" value="0" min="0" max="600" data-highlight="true"  />
+			    </div>
+
+                 <button>Spara</button>
+
+	        </div>
+            
+	        <div data-role="footer" data-position="fixed" data-theme="b" data-id="fixedfooter">
+		        <h4 class="loggedinuser">Du måste välja användare: Byt användare</h4>
+	        </div>
+        </div>
+
+
+
+        <!-- BYT ANVÄNDARE -->
         <div data-role="page" id="loginview" data-theme="b">
 
-	         <div data-role="header"  data-id="fixedheader"  data-position="fixed"  data-theme="e">
+	         <div data-role="header"  data-id="fixedheader" data-position="fixed"  data-theme="b" data-add-back-btn="true">
                <div data-role="navbar">
 		            <ul>
 			            <li><a  data-icon="home" href="#home">Start</a></li>
-			            <li><a data-icon="star" href="#bar">Uppdrag</a></li>
-			            <li><a data-icon="grid" href="#bar">Uppföljning</a></li>
+			            <li><a data-icon="star" href="#activitylist">Uppdrag</a></li>
+			            <li><a data-icon="grid" href="#statistics">Uppföljning</a></li>
                         <li><a  data-icon="gear" href="#loginview">Byt användare</a></li>
 			            <li style="text-align: right;"><small class="loggedinuser"></small></li>
 		            </ul>
@@ -246,12 +279,13 @@
             </div>
 
 	        <div data-role="content">	
-               
+                <h1>Byt användare</h1> 
                 <script>
                     $(document).on('change', '#user-select', function() { loginUserSelected(this); });
                 </script>
 
-                <select name="user-select" id="user-select" data-theme="b" onselect="">
+                <select name="user-select" id="user-select" data-theme="b" onselect="" data-role="select">
+                    <option>Vem är du?</option>
                     <option value="Peter">Peter</option>
                     <option value="Pelle">Pelle</option>
                     <option value="Kalle">Kalle</option>
@@ -271,45 +305,44 @@
                 <button  id="btnCreateUser" onclick="createUser();">Skapa ny användare</button>
                 <a href="#" class="btn large"  id="btnLogout" style="display:none;">Logga ut</a>-->
 
-		        <p><a href="#home" data-role="button" data-icon="arrow-l">Tillbaka</a></p>	
 	        </div>
 
-	        <div data-role="footer"  data-position="fixed">
-		        <h4>Page Footer</h4>
+	        <div data-role="footer" data-position="fixed" data-theme="b" data-id="fixedfooter">
+		        <h4 class="loggedinuser">Du måste välja användare: Byt användare</h4>
 	        </div>
         </div>
 
-        
-        <div data-role="page" id="activity" data-theme="b">
 
-	         <div data-role="header" data-position="fixed"  data-theme="e" >
-                 <a data-rel="back" data-icon="arrow-l">Tillbaka</a>
-                 <h1>Uppdraget</h1> 
-               <!--<div data-role="navbar">
+
+
+    
+        
+        <!--UPPFÖLJNING -->
+        <div data-role="page" id="statistics" data-theme="b">
+	         <div data-role="header" data-position="fixed"  data-theme="b" >
+               <div data-role="navbar">
 		            <ul>
 			            <li><a  data-icon="home" href="#home">Start</a></li>
 			            <li><a data-icon="star" href="#activitylist">Uppdrag</a></li>
-			            <li><a data-icon="grid" href="#bar">Uppföljning</a></li>
+			            <li><a data-icon="grid" href="#statistics">Uppföljning</a></li>
                         <li><a  data-icon="gear" href="#loginview">Byt användare</a></li>
 			            <li style="text-align: right;"><small class="loggedinuser"></small></li>
 		            </ul>
-	            </div>-->
+	            </div>
             </div>
 
 	        <div data-role="content">	
-                <h1>Uppdraget</h1>
+                <h1>Uppföljning</h1>
                 <div data-role="fieldcontain">
-                    sfdsf
+                    
                 </div>
 
 	        </div>
             
-	        <div data-role="footer" data-position="fixed">
-		        <h4>Page Footer</h4>
+	        <div data-role="footer" data-position="fixed" data-theme="b" data-id="fixedfooter">
+		        <h4 class="loggedinuser">Du måste välja användare: Byt användare</h4>
 	        </div>
         </div>
-
-    
 
 
   </body>

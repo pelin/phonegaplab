@@ -7,18 +7,10 @@
         //self.location = "#home";
 
         var currentUsername = user.get("username");
-
-        alert('Redan inloggad ' + currentUsername);
-
         $('.loggedinuser').text('Inloggad som ' + currentUsername);
         $('#currentuser').text(currentUsername);
-        //$('#currentuser').html(currentUsername);
-
-        alert($('#currentuser').text())
-
         $('#user-select option[value='+currentUsername+']').attr('selected', 'selected');
-        //$('#user-select').selectmenu('refresh', true);
-
+        //$('#user-select').selectmenu('refresh');
 
     }
     else {
@@ -75,13 +67,10 @@ function loginUserSelected(option) {
     alert('loggar in ' + option.value);
     Parse.User.logIn(option.value, option.value, {
         success: function (user) {
-            alert("Inloggad som " + option.value);
             status = "Inloggad som " + option.value;
 
-
-
             $('.loggedinuser').text('Inloggad som ' + option.value);
-
+            $('#currentuser').text(currentUsername);
         },
         error: function (user, error) {
             alert("Felaktig inloggning (" + error.message + ")");

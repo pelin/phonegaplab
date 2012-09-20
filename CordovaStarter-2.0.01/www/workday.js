@@ -2,46 +2,24 @@
 
 var currentWorkday = "";
 
-function getActivities(){
-    //alert('getactivities');
-        var Activity = Parse.Object.extend("Activity");
-        var query = new Parse.Query(Activity);
-        query.find({
-            success: function (results) {
-                //alert('success');
-                for (var i = 0; i < results.length; i++) {
-                    if (i == 0)
-                        $('#uppdrag').append('<option selected="selected" value="' + results[i].get("objectId") + '">' + results[i].get("Description") + '</option>');
-                    else
-                        $('#uppdrag').append('<option value="' + results[i].get("objectId") + '">' + results[i].get("Description") + '</option>');
 
 
-                    $('#projectlist').append('<li><a href="#activity" data-icon="arrow-r">' + results[i].get("Description") + '</a></li>');
-                    
-                }
-                //$('#projectlist').listview('refresh');
-            },
-            error: function (error) {
-                // error is an instance of Parse.Error.
-            }
-        });
-}
 
 function startWorkday() {
     $.mobile.showPageLoadingMsg("Arbetsdag", "Startar arbetsdag...");
 
-    alert("Startar");
+    //alert("Startar");
 
-    alert($('#uppdrag').val);
+    //alert($('#uppdrag').val);
 
     
 
     if (isUserLoggedIn()) {
-        alert("Inloggning finns...");
+        //alert("Inloggning finns...");
         navigator.geolocation.getCurrentPosition(onContinueStartWorkday, onError);
     }
     else {
-        alert("Du måste logga in först");
+        alert("Du måste välja användare först");
         self.navigation = "#loginview";
     }
 
@@ -50,7 +28,7 @@ function startWorkday() {
 };
 
 function onContinueStartWorkday(position) {
-    alert("Position hämtad...");
+    //alert("Position hämtad...");
 
     var user = Parse.User.current();
     var Workday = Parse.Object.extend("Workday");
@@ -64,15 +42,15 @@ function onContinueStartWorkday(position) {
     workday.set("user", user);
     workday.set("location", position);
 
-    alert("Sparar...");
+    //alert("Sparar...");
 
     workday.save(null, {
         success: function (object) {
-            alert("Arbetsdagen börjar");
+            //alert("Arbetsdagen börjar");
 
             workday.fetch({
                 success: function (myObject) {
-                    alert("Klart");
+                    //alert("Klart");
                     currentWorkday = myObject;
                     workdayStarted = currentWorkday.createdAt;
                     $("#btnStartWorkday").hide();
@@ -109,7 +87,7 @@ function MapMonth(monthnumber) {
 
 function endWorkday() {
 
-    alert("Avslutar...");
+    //alert("Avslutar...");
     var now = new Date();
     var nowstring = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
 
