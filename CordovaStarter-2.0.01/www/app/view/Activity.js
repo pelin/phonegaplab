@@ -5,7 +5,7 @@
     config: {
         iconCls: 'search',
         title: 'Uppdrag',
-        html: 'placeholder text',
+        html: '<span>Hej</span>',
         styleHtmlContent: true,
         items: [{
             docked: 'top',
