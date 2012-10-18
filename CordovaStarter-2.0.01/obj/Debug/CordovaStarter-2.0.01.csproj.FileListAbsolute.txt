@@ -11,3 +11,4 @@ C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\obj\Debug\CordovaStarter-2.0.01
 C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\obj\Debug\CordovaStarter-2.0.01.dll
 C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\obj\Debug\CordovaStarter-2.0.01.pdb
 C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\obj\Debug\XapCacheFile.xml
+C:\Kod\GitCode\phonegaplab\CordovaStarter-2.0.01\obj\Debug\CordovaStarter-2.0.01.csprojResolveAssemblyReference.cache

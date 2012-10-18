@@ -212,7 +212,11 @@
                 <button onclick="onDispayCoordinates();">Visa position</button> <br/>
                 <div id="koord"></div>
                 <div id="mapholder"></div>
-		        <p><a href="#home">Tillbaka</a></p>-->	
+		        <p><a href="#home">Tillbaka</a></p>-->
+                
+                
+                
+                	
 	        </div>
 
 	        <div data-role="footer" data-position="fixed" data-theme="b" data-id="fixedfooter">
@@ -252,7 +256,27 @@
 			 	    <input id="projectestimatedtime"  type="range" name="slider" id="slider" value="0" min="0" max="600" data-highlight="true"  />
 			    </div>
 
-                 <button>Spara</button>
+                <button>Spara</button>
+                <hr />
+
+                <h2>Kamera</h2>
+                
+                <!--<h2>Action</h2>-->
+                <a href="#" class="btn large" onclick="getPicture();">Knäpp nytt kort</a>
+                <a href="#" class="btn large" onclick="getImage();">Välj bild från Biblioteket</a>
+                <br/>
+                <p>
+               	    <a href="#" class="btn large" id="btnSaveTaskPhoto" onclick="saveTaskPhoto();" >Spara bilden med Parse</a> <br/>
+                </p>
+
+                <p>
+               	    <a href="#" class="btn large" id="btnGetTaskPhoto" onclick="getTaskPhoto();" >Hämta bilden med Parse</a> <br/>
+                </p>
+                <div id="info">
+                    Status: <span id="camera_status"></span><br/>
+                    <img style="width:120px;height:120px;visibility:hidden;display:none;" id="camera_image" src="" />
+                    <img style="width:120px;height:120px;visibility:hidden;display:none;" id="camera_image_loaded" src="" />
+                </div>
 
 	        </div>
             
